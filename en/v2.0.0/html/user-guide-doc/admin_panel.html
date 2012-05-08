@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Admin Panel &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="../index.html" />
+    <link rel="up" title="User Guide" href="../user-guide.html" />
+    <link rel="next" title="Customer Panel" href="customer_panel.html" />
+    <link rel="prev" title="How to use CDR-Stats" href="how_to_use_it.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customer_panel.html" title="Customer Panel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_use_it.html" title="How to use CDR-Stats"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../user-guide.html" accesskey="U">User Guide</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="admin-panel">
+<span id="id1"></span><h1>Admin Panel<a class="headerlink" href="#admin-panel" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://localhost:8000/admin/">http://localhost:8000/admin/</a></p>
+<p>The Admin section allows you to create administrators who have access the admin screens. Levels of
+access can be set.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#screenshot-with-features" id="id2">Screenshot with Features</a></li>
+</ul>
+</div>
+<div class="section" id="screenshot-with-features">
+<span id="admin-screenshot-features"></span><h2><a class="toc-backref" href="#id2">Screenshot with Features</a><a class="headerlink" href="#screenshot-with-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dashboard">
+<h3>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h3>
+<p>Dashboard page for the admin interface after successful login with superuser credentials</p>
+<img alt="../_images/admin_dashboard.png" src="../_images/admin_dashboard.png" style="width: 1000px;" />
+</div>
+<div class="section" id="alarm">
+<h3>Alarm<a class="headerlink" href="#alarm" title="Permalink to this headline">¶</a></h3>
+<p>The alarm list will be displayed from the following URL. You can add a new
+alarm by clicking <tt class="docutils literal"><span class="pre">Add</span> <span class="pre">alarm</span></tt> and adding the name of the alarm and its
+description, Also from the alarm list, click on the alarm that you want
+to update.</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alarm/">http://localhost:8000/admin/cdr_alert/alarm/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/alarm_list.png" src="../_images/alarm_list.png" style="width: 1000px;" />
+<p>To Add/Update alarm</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alarm/add/">http://localhost:8000/admin/cdr_alert/alarm/add/</a></li>
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alarm/1/">http://localhost:8000/admin/cdr_alert/alarm/1/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/add_alarm.png" src="../_images/add_alarm.png" style="width: 1000px;" />
+</div>
+<div class="section" id="alarm-report">
+<h3>Alarm-report<a class="headerlink" href="#alarm-report" title="Permalink to this headline">¶</a></h3>
+<p>The alarmreport will be displayed from the following URL.</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alarmreport/">http://localhost:8000/admin/cdr_alert/alarmreport/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/alarm_report_list.png" src="../_images/alarm_report_list.png" style="width: 1000px;" />
+<p>To Add/Update alarmreport</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alarmreport/add/">http://localhost:8000/admin/cdr_alert/alarmreport/add/</a></li>
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alarmreport/1/">http://localhost:8000/admin/cdr_alert/alarmreport/1/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/alarm_report.png" src="../_images/alarm_report.png" style="width: 1000px;" />
+</div>
+<div class="section" id="blacklist">
+<h3>Blacklist<a class="headerlink" href="#blacklist" title="Permalink to this headline">¶</a></h3>
+<p>The blacklist will be displayed from the following URL. You can add a new
+blacklist by clicking <tt class="docutils literal"><span class="pre">Blacklist</span> <span class="pre">by</span> <span class="pre">country</span></tt> and selecting the country name and its
+prefixes, Also from the blacklist, click on the blacklist that you want
+to update.</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/blacklist/">http://localhost:8000/admin/cdr_alert/blacklist/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/blacklist_prefix_list.png" src="../_images/blacklist_prefix_list.png" style="width: 1000px;" />
+<img alt="../_images/add_prefix_into_blacklist.png" src="../_images/add_prefix_into_blacklist.png" />
+</div>
+<div class="section" id="whitelist">
+<h3>Whitelist<a class="headerlink" href="#whitelist" title="Permalink to this headline">¶</a></h3>
+<p>The whitelist will be displayed from the following URL. You can add a new
+blacklist by clicking <tt class="docutils literal"><span class="pre">Whitelist</span> <span class="pre">by</span> <span class="pre">country</span></tt> and selecting the country name and its
+prefixes, Also from the whitelist, click on the blacklist that you want
+to update.</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/whitelist/">http://localhost:8000/admin/cdr_alert/whitelist/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/whitelist_prefix_list.png" src="../_images/whitelist_prefix_list.png" style="width: 1000px;" />
+<img alt="../_images/add_prefix_into_whitelist.png" src="../_images/add_prefix_into_whitelist.png" />
+</div>
+<div class="section" id="alert-remove-prefix">
+<h3>Alert-remove-prefix<a class="headerlink" href="#alert-remove-prefix" title="Permalink to this headline">¶</a></h3>
+<p>The alert remove prefix will be displayed from the following URL. You can add a new
+remove prefix by clicking <tt class="docutils literal"><span class="pre">Add</span> <span class="pre">alert</span> <span class="pre">remove</span> <span class="pre">prefix</span></tt> and selecting the remove prefix,
+Also from the alert remove prefix, click on the remove prefix that you want to update.</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alertremoveprefix/">http://localhost:8000/admin/cdr_alert/alertremoveprefix/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/alert_remove_prefix_list.png" src="../_images/alert_remove_prefix_list.png" style="width: 1000px;" />
+<p>To Add/Update alert-removep-refix</p>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alertremoveprefix/add/">http://localhost:8000/admin/cdr_alert/alertremoveprefix/add/</a></li>
+<li><a class="reference external" href="http://localhost:8000/admin/cdr_alert/alertremoveprefix/1/">http://localhost:8000/admin/cdr_alert/alertremoveprefix/1/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/add_alert_remove_prefix.png" src="../_images/add_alert_remove_prefix.png" style="width: 1000px;" />
+</div>
+<div class="section" id="switch">
+<h3>Switch<a class="headerlink" href="#switch" title="Permalink to this headline">¶</a></h3>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr/switch/">http://localhost:8000/admin/cdr/switch/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/switch_list.png" src="../_images/switch_list.png" style="width: 1000px;" />
+</div>
+<div class="section" id="hangupcause">
+<h3>HangupCause<a class="headerlink" href="#hangupcause" title="Permalink to this headline">¶</a></h3>
+<p><strong>URL</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://localhost:8000/admin/cdr/hangupcause/">http://localhost:8000/admin/cdr/hangupcause/</a></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/hangup_cause_list.png" src="../_images/hangup_cause_list.png" style="width: 1000px;" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Admin Panel</a><ul>
+<li><a class="reference internal" href="#screenshot-with-features">Screenshot with Features</a><ul>
+<li><a class="reference internal" href="#dashboard">Dashboard</a></li>
+<li><a class="reference internal" href="#alarm">Alarm</a></li>
+<li><a class="reference internal" href="#alarm-report">Alarm-report</a></li>
+<li><a class="reference internal" href="#blacklist">Blacklist</a></li>
+<li><a class="reference internal" href="#whitelist">Whitelist</a></li>
+<li><a class="reference internal" href="#alert-remove-prefix">Alert-remove-prefix</a></li>
+<li><a class="reference internal" href="#switch">Switch</a></li>
+<li><a class="reference internal" href="#hangupcause">HangupCause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_use_it.html"
+                        title="previous chapter">How to use CDR-Stats</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="customer_panel.html"
+                        title="next chapter">Customer Panel</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customer_panel.html" title="Customer Panel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_use_it.html" title="How to use CDR-Stats"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../user-guide.html" >User Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

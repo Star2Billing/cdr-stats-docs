@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Celery Installation &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="../index.html" />
+    <link rel="up" title="Installation" href="../installation.html" />
+    <link rel="next" title="User Guide" href="../user-guide.html" />
+    <link rel="prev" title="Broker Installation" href="../broker/broker-installation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../user-guide.html" title="User Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../broker/broker-installation.html" title="Broker Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="celery-installation">
+<span id="id1"></span><h1>Celery Installation<a class="headerlink" href="#celery-installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="celery">
+<h2>Celery<a class="headerlink" href="#celery" title="Permalink to this headline">¶</a></h2>
+<p>Celery is an asynchronous task queue/job queue based on distributed message
+passing. It is focused on real-time operation, but supports scheduling as well.</p>
+<p>You can install Celery either via the Python Package Index (PyPI) or from source:</p>
+<div class="highlight-python"><pre>$ pip install celery</pre>
+</div>
+<div class="section" id="downloading-and-installing-from-source">
+<span id="celery-installing-from-source"></span><h3>Downloading and installing from source<a class="headerlink" href="#downloading-and-installing-from-source" title="Permalink to this headline">¶</a></h3>
+<p>To Download the latest version <a class="reference external" href="http://pypi.python.org/pypi/celery/">click here</a>.</p>
+<p>You can install it by doing the following:</p>
+<div class="highlight-python"><pre>$ tar xvfz celery-0.0.0.tar.gz
+
+$ cd celery-0.0.0
+
+$ python setup.py build
+
+$ python setup.py install # as root</pre>
+</div>
+</div>
+<div class="section" id="using-the-development-version">
+<span id="celery-installing-from-git"></span><h3>Using the development version<a class="headerlink" href="#using-the-development-version" title="Permalink to this headline">¶</a></h3>
+<p>You can clone the repository by doing the following:</p>
+<div class="highlight-python"><pre>$ git clone git://github.com/ask/celery.git</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Celery Installation</a><ul>
+<li><a class="reference internal" href="#celery">Celery</a><ul>
+<li><a class="reference internal" href="#downloading-and-installing-from-source">Downloading and installing from source</a></li>
+<li><a class="reference internal" href="#using-the-development-version">Using the development version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../broker/broker-installation.html"
+                        title="previous chapter">Broker Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../user-guide.html"
+                        title="next chapter">User Guide</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../user-guide.html" title="User Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../broker/broker-installation.html" title="Broker Installation"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../installation.html" >Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

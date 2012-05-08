@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sample Configuration &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="index.html" />
+    <link rel="up" title="Configuration and Defaults" href="configuration-defaults.html" />
+    <link rel="next" title="Celery Configuration" href="celery/celery-configuration.html" />
+    <link rel="prev" title="Configuration and Defaults" href="configuration-defaults.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="celery/celery-configuration.html" title="Celery Configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configuration-defaults.html" title="Configuration and Defaults"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="configuration-defaults.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sample-configuration">
+<span id="conf-example"></span><h1>Sample Configuration<a class="headerlink" href="#sample-configuration" title="Permalink to this headline">¶</a></h1>
+<p>This is a sample configuration to get you started.
+It should contain all you need to create a basic set-up.</p>
+<div class="section" id="the-configuration-module">
+<h2>The Configuration Module<a class="headerlink" href="#the-configuration-module" title="Permalink to this headline">¶</a></h2>
+<p>Some of the more important parts of the configuration module for the cdr_stats,
+<tt class="docutils literal"><span class="pre">settings.py</span></tt>, are explained below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="n">APPLICATION_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">&#39;__file__&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">APPLICATION_DIR</span></tt> now contains the full path of your project folder and can be used elsewhere
+in the <tt class="docutils literal"><span class="pre">settings.py</span></tt> module so that your project may be moved around the system without you having to
+worry about changing any troublesome hard-coded paths.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>turns on debug mode allowing the browser user to see project settings and temporary variables.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="s">&#39;xyz&#39;</span><span class="p">,</span> <span class="s">&#39;xyz@abc.com&#39;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>sends all errors from the production server to the admin&#8217;s email address.</p>
+<div class="highlight-python"><pre>DATABASES = {
+    'default': {
+        # Add 'postgresql_psycopg2','postgresql','mysql','sqlite3','oracle'
+        'ENGINE': 'django.db.backends.sqlite3',
+        # Or path to database file if using sqlite3.
+        'NAME': os.path.dirname(os.path.abspath(__file__)) + '/database/local.db',
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost.
+                                         # Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default.
+                                         # Not used with sqlite3.
+    }
+}
+
+or
+
+DATABASES = {
+    'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'cdr_stats_psql',
+            'USER': 'postgresuser',
+            'PASSWORD': 'postgrespasswd',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+}
+
+or
+
+DATABASES = {
+    'default': {
+            'ENGINE': 'mysql',
+            'NAME': 'cdr_stats_mysql',
+            'USER': 'mysqluser',
+            'PASSWORD': 'mysqlpasswd',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+}
+
+CDR_TABLE_NAME = 'cdr' # Name of the table containing the Asterisk/FreeSwitch CDR
+
+# Only the Asterisk CDR table is supported at the moment,
+# but Freeswitch and other platform will be soon
+VOIP_PLATFORM = 'asterisk' # asterisk, freeswitch
+
+#MONGODB
+#=======
+CDR_MONGO_DB_NAME = 'cdr-stats'
+CDR_MONGO_HOST = 'localhost'
+CDR_MONGO_PORT = 27017</pre>
+</div>
+<p>sets up the options required for Django to connect to your database.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>tells Django where to find your media files such as images that the <tt class="docutils literal"><span class="pre">HTML</span>
+<span class="pre">templates</span></tt> might use.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s">&#39;urls&#39;</span>
+</pre></div>
+</div>
+<p>tells Django to start finding URL matches at in the <tt class="docutils literal"><span class="pre">urls.py</span></tt> module in the <tt class="docutils literal"><span class="pre">cdr_stats</span></tt> project folder.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;templates&#39;</span><span class="p">),</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>tells Django where to find your HTML template files.</p>
+<div class="highlight-python"><pre> INSTALLED_APPS = (
+'django.contrib.auth',
+'django.contrib.contenttypes',
+'django.contrib.sessions',
+'django.contrib.sites',
+'django.contrib.admin',
+...
+'cdr',
+'cdr_alert',
+...
+)</pre>
+</div>
+<p>tells Django which applications (custom and external) to use in your project.
+The custom applications, <tt class="docutils literal"><span class="pre">cdr</span></tt> etc. are stored in the project folder along with
+these custom applications.</p>
+<p>Configure different switches</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#MongoDB(s) to use for import</span>
+<span class="n">CDR_MONGO_IMPORT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;127.0.0.1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr-stats&#39;</span><span class="p">,</span>
+        <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="s">&#39;port&#39;</span><span class="p">:</span> <span class="mi">27017</span><span class="p">,</span>
+        <span class="s">&#39;collection&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c">#&#39;192.168.1.15&#39;: {</span>
+    <span class="c">#    &#39;db_name&#39;: &#39;freeswitch_cdr&#39;,</span>
+    <span class="c">#    &#39;host&#39;: &#39;192.168.1.15&#39;,</span>
+    <span class="c">#    &#39;port&#39;: 27017,</span>
+    <span class="c">#    &#39;collection&#39;: &#39;cdr&#39;,</span>
+    <span class="c">#},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sample Configuration</a><ul>
+<li><a class="reference internal" href="#the-configuration-module">The Configuration Module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="configuration-defaults.html"
+                        title="previous chapter">Configuration and Defaults</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="celery/celery-configuration.html"
+                        title="next chapter">Celery Configuration</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="celery/celery-configuration.html" title="Celery Configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configuration-defaults.html" title="Configuration and Defaults"
+             >previous</a> |</li>
+        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="configuration-defaults.html" >Configuration and Defaults</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

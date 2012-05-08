@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developer doc &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="index.html" />
+    <link rel="next" title="Prerequisites" href="developer-doc/pre-requisite.html" />
+    <link rel="prev" title="Celery Configuration" href="celery/celery-configuration.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="developer-doc/pre-requisite.html" title="Prerequisites"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="celery/celery-configuration.html" title="Celery Configuration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developer-doc">
+<span id="id1"></span><h1>Developer doc<a class="headerlink" href="#developer-doc" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/pre-requisite.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/coding-structure.html">Coding Style &amp; Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/coding-structure.html#style">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/coding-structure.html#structure">Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/objects-description.html">Objects Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#switch"><tt class="docutils literal"><span class="pre">Switch</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#hangupcause"><tt class="docutils literal"><span class="pre">HangupCause</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#userprofile"><tt class="docutils literal"><span class="pre">UserProfile</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#alarm"><tt class="docutils literal"><span class="pre">Alarm</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#alertremoveprefix"><tt class="docutils literal"><span class="pre">AlertRemovePrefix</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#alarmreport"><tt class="docutils literal"><span class="pre">AlarmReport</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#blacklist"><tt class="docutils literal"><span class="pre">Blacklist</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/objects-description.html#whitelist"><tt class="docutils literal"><span class="pre">Whitelist</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/objects-description.html#database-design">Database Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/views.html">CDR-Stats Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#index"><tt class="docutils literal"><span class="pre">index</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-view"><tt class="docutils literal"><span class="pre">cdr_view</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-detail"><tt class="docutils literal"><span class="pre">cdr_detail</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-global-report"><tt class="docutils literal"><span class="pre">cdr_global_report</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-dashboard"><tt class="docutils literal"><span class="pre">cdr_dashboard</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-overview"><tt class="docutils literal"><span class="pre">cdr_overview</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-realtime"><tt class="docutils literal"><span class="pre">cdr_realtime</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-graph-by-hour"><tt class="docutils literal"><span class="pre">cdr_graph_by_hour</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-concurrent-calls"><tt class="docutils literal"><span class="pre">cdr_concurrent_calls</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#customer-detail-change"><tt class="docutils literal"><span class="pre">customer_detail_change</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/tasks.html">CDR-Stats Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/tasks.html#sync-cdr-pending"><tt class="docutils literal"><span class="pre">sync_cdr_pending</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/tasks.html#chk-alarm"><tt class="docutils literal"><span class="pre">chk_alarm</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/tasks.html#blacklist-whitelist-notification"><tt class="docutils literal"><span class="pre">blacklist_whitelist_notification</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/tasks.html#send-cdr-report"><tt class="docutils literal"><span class="pre">send_cdr_report</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-doc/testing.html">Test Case Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/testing.html#requirement">Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/testing.html#how-to-run-test">How to run test</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="celery/celery-configuration.html"
+                        title="previous chapter">Celery Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="developer-doc/pre-requisite.html"
+                        title="next chapter">Prerequisites</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="developer-doc/pre-requisite.html" title="Prerequisites"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="celery/celery-configuration.html" title="Celery Configuration"
+             >previous</a> |</li>
+        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CDR-Stats Tasks &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="../index.html" />
+    <link rel="up" title="Developer doc" href="../developer-doc.html" />
+    <link rel="next" title="Test Case Descriptions" href="testing.html" />
+    <link rel="prev" title="CDR-Stats Views" href="views.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="testing.html" title="Test Case Descriptions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="views.html" title="CDR-Stats Views"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../developer-doc.html" accesskey="U">Developer doc</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cdr.tasks">
+<span id="cdr-stats-tasks"></span><span id="tasks"></span><h1>CDR-Stats Tasks<a class="headerlink" href="#module-cdr.tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sync-cdr-pending">
+<span id="sync-cdr-pending-task"></span><h2><a class="reference internal" href="#cdr.tasks.sync_cdr_pending" title="cdr.tasks.sync_cdr_pending"><tt class="xref py py-class docutils literal"><span class="pre">sync_cdr_pending</span></tt></a><a class="headerlink" href="#sync-cdr-pending" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr.tasks.sync_cdr_pending">
+<em class="property">class </em><tt class="descclassname">cdr.tasks.</tt><tt class="descname">sync_cdr_pending</tt><a class="headerlink" href="#cdr.tasks.sync_cdr_pending" title="Permalink to this definition">¶</a></dt>
+<dd><p>A periodic task that checks for pending calls to import</p>
+</dd></dl>
+
+<span class="target" id="module-cdr_alert.tasks"></span></div>
+<div class="section" id="chk-alarm">
+<span id="chk-alarm-task"></span><h2><a class="reference internal" href="#cdr_alert.tasks.chk_alarm" title="cdr_alert.tasks.chk_alarm"><tt class="xref py py-class docutils literal"><span class="pre">chk_alarm</span></tt></a><a class="headerlink" href="#chk-alarm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.tasks.chk_alarm">
+<em class="property">class </em><tt class="descclassname">cdr_alert.tasks.</tt><tt class="descname">chk_alarm</tt><a class="headerlink" href="#cdr_alert.tasks.chk_alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>A periodic task to determine strange behavior in CDR</p>
+<blockquote>
+<div>Which will get all alarm from system and checked with
+alert condition value &amp; if it is matched, user will be notified
+via mail</div></blockquote>
+<p><strong>Usage</strong>:</p>
+<blockquote>
+<div>chk_alarm.delay()</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="blacklist-whitelist-notification">
+<span id="blacklist-whitelist-notification-task"></span><h2><a class="reference internal" href="#cdr_alert.tasks.blacklist_whitelist_notification" title="cdr_alert.tasks.blacklist_whitelist_notification"><tt class="xref py py-class docutils literal"><span class="pre">blacklist_whitelist_notification</span></tt></a><a class="headerlink" href="#blacklist-whitelist-notification" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.tasks.blacklist_whitelist_notification">
+<em class="property">class </em><tt class="descclassname">cdr_alert.tasks.</tt><tt class="descname">blacklist_whitelist_notification</tt><a class="headerlink" href="#cdr_alert.tasks.blacklist_whitelist_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send notification to user while destination number matched with
+blacklist or whitelist</p>
+<p><strong>Usage</strong>:</p>
+<blockquote>
+<div>blacklist_whitelist_notification.delay(notice_type)</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="send-cdr-report">
+<span id="send-cdr-report-task"></span><h2><a class="reference internal" href="#cdr_alert.tasks.send_cdr_report" title="cdr_alert.tasks.send_cdr_report"><tt class="xref py py-class docutils literal"><span class="pre">send_cdr_report</span></tt></a><a class="headerlink" href="#send-cdr-report" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.tasks.send_cdr_report">
+<em class="property">class </em><tt class="descclassname">cdr_alert.tasks.</tt><tt class="descname">send_cdr_report</tt><a class="headerlink" href="#cdr_alert.tasks.send_cdr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>A periodic task to send previous day&#8217;s CDR Report as mail</p>
+<p><strong>Usage</strong>:</p>
+<blockquote>
+<div>send_cdr_report.delay()</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CDR-Stats Tasks</a><ul>
+<li><a class="reference internal" href="#sync-cdr-pending"><tt class="docutils literal"><span class="pre">sync_cdr_pending</span></tt></a></li>
+<li><a class="reference internal" href="#chk-alarm"><tt class="docutils literal"><span class="pre">chk_alarm</span></tt></a></li>
+<li><a class="reference internal" href="#blacklist-whitelist-notification"><tt class="docutils literal"><span class="pre">blacklist_whitelist_notification</span></tt></a></li>
+<li><a class="reference internal" href="#send-cdr-report"><tt class="docutils literal"><span class="pre">send_cdr_report</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="views.html"
+                        title="previous chapter">CDR-Stats Views</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="testing.html"
+                        title="next chapter">Test Case Descriptions</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="testing.html" title="Test Case Descriptions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="views.html" title="CDR-Stats Views"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../developer-doc.html" >Developer doc</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

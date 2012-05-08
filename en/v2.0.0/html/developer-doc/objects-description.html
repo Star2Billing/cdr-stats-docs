@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Objects Description &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="../index.html" />
+    <link rel="up" title="Developer doc" href="../developer-doc.html" />
+    <link rel="next" title="CDR-Stats Views" href="views.html" />
+    <link rel="prev" title="Coding Style &amp; Structure" href="coding-structure.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="views.html" title="CDR-Stats Views"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="coding-structure.html" title="Coding Style &amp; Structure"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../developer-doc.html" accesskey="U">Developer doc</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cdr.models">
+<span id="id1"></span><span id="objects-description"></span><h1>Objects Description<a class="headerlink" href="#module-cdr.models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="switch">
+<span id="switch-model"></span><h2><a class="reference internal" href="#cdr.models.Switch" title="cdr.models.Switch"><tt class="xref py py-class docutils literal"><span class="pre">Switch</span></tt></a><a class="headerlink" href="#switch" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr.models.Switch">
+<em class="property">class </em><tt class="descclassname">cdr.models.</tt><tt class="descname">Switch</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.models.Switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the Switch</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - Name of switch.</li>
+<li><tt class="docutils literal"><span class="pre">ipaddress</span></tt> - ipaddress</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: voip_switch</p>
+</dd></dl>
+
+</div>
+<div class="section" id="hangupcause">
+<span id="hangupcause-model"></span><h2><a class="reference internal" href="#cdr.models.HangupCause" title="cdr.models.HangupCause"><tt class="xref py py-class docutils literal"><span class="pre">HangupCause</span></tt></a><a class="headerlink" href="#hangupcause" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr.models.HangupCause">
+<em class="property">class </em><tt class="descclassname">cdr.models.</tt><tt class="descname">HangupCause</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.models.HangupCause" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the HangupCause</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">code</span></tt> - ITU-T Q.850 Code.</li>
+<li><tt class="docutils literal"><span class="pre">enumeration</span></tt> - Enumeration</li>
+<li><tt class="docutils literal"><span class="pre">cause</span></tt> - cause</li>
+<li><tt class="docutils literal"><span class="pre">description</span></tt> - cause description</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: hangup_cause</p>
+</dd></dl>
+
+<span class="target" id="module-user_profile.models"></span></div>
+<div class="section" id="userprofile">
+<span id="userprofile-model"></span><h2><a class="reference internal" href="#user_profile.models.UserProfile" title="user_profile.models.UserProfile"><tt class="xref py py-class docutils literal"><span class="pre">UserProfile</span></tt></a><a class="headerlink" href="#userprofile" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="user_profile.models.UserProfile">
+<em class="property">class </em><tt class="descclassname">user_profile.models.</tt><tt class="descname">UserProfile</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#user_profile.models.UserProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines extra features for the user</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">accountcode</span></tt> - Account name.</li>
+<li><tt class="docutils literal"><span class="pre">address</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">city</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">state</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">address</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">country</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">zip_code</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">phone_no</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">fax</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">company_name</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">company_website</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">language</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">note</span></tt> -</li>
+</ul>
+</div></blockquote>
+<p><strong>Relationships</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">user</span></tt> - Foreign key relationship to the User model.</li>
+<li><tt class="docutils literal"><span class="pre">userprofile_gateway</span></tt> - ManyToMany</li>
+<li><tt class="docutils literal"><span class="pre">userprofile_voipservergroup</span></tt> - ManyToMany</li>
+<li><tt class="docutils literal"><span class="pre">dialersetting</span></tt> - Foreign key relationship to the DialerSetting         model.</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: user_profile</p>
+</dd></dl>
+
+<span class="target" id="module-cdr_alert.models"></span></div>
+<div class="section" id="alarm">
+<span id="alarm-model"></span><h2><a class="reference internal" href="#cdr_alert.models.Alarm" title="cdr_alert.models.Alarm"><tt class="xref py py-class docutils literal"><span class="pre">Alarm</span></tt></a><a class="headerlink" href="#alarm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.models.Alarm">
+<em class="property">class </em><tt class="descclassname">cdr_alert.models.</tt><tt class="descname">Alarm</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.models.Alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the Alarm</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - Alarm name</li>
+<li><tt class="docutils literal"><span class="pre">period</span></tt> - Day | Week | Month</li>
+<li><tt class="docutils literal"><span class="pre">type</span></tt> - ALOC (average length of call) ; ASR (answer seize ratio)</li>
+<li><tt class="docutils literal"><span class="pre">alert_condition</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">alert_value</span></tt> - Input the value for the alert</li>
+<li><tt class="docutils literal"><span class="pre">alert_condition_add_on</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">status</span></tt> - Inactive | Active</li>
+<li><tt class="docutils literal"><span class="pre">email_to_send_alarm</span></tt> - email_to</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: alert</p>
+</dd></dl>
+
+</div>
+<div class="section" id="alertremoveprefix">
+<span id="alertremoveprefix-model"></span><h2><a class="reference internal" href="#cdr_alert.models.AlertRemovePrefix" title="cdr_alert.models.AlertRemovePrefix"><tt class="xref py py-class docutils literal"><span class="pre">AlertRemovePrefix</span></tt></a><a class="headerlink" href="#alertremoveprefix" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.models.AlertRemovePrefix">
+<em class="property">class </em><tt class="descclassname">cdr_alert.models.</tt><tt class="descname">AlertRemovePrefix</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.models.AlertRemovePrefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the Alert Remove Prefix
+Here you can define the list of prefix that needs to be removed from the dialed number,
+imagine all your phonenumber comes in the format 5555004432111321
+You will need to remove the prefix 5555 in order to analyze the phone numbers</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">label</span></tt> - Label for the custom prefix</li>
+<li><tt class="docutils literal"><span class="pre">prefix</span></tt> - Prefix value</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: alarm</p>
+</dd></dl>
+
+</div>
+<div class="section" id="alarmreport">
+<span id="alarmreport-model"></span><h2><a class="reference internal" href="#cdr_alert.models.AlarmReport" title="cdr_alert.models.AlarmReport"><tt class="xref py py-class docutils literal"><span class="pre">AlarmReport</span></tt></a><a class="headerlink" href="#alarmreport" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.models.AlarmReport">
+<em class="property">class </em><tt class="descclassname">cdr_alert.models.</tt><tt class="descname">AlarmReport</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.models.AlarmReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the Alarm report</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">alarm</span></tt> - Alarm name</li>
+<li><tt class="docutils literal"><span class="pre">calculatedvalue</span></tt> - Input the value for the alert</li>
+<li><tt class="docutils literal"><span class="pre">daterun</span></tt> -</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: alert_report</p>
+</dd></dl>
+
+</div>
+<div class="section" id="blacklist">
+<span id="blacklist-model"></span><h2><a class="reference internal" href="#cdr_alert.models.Blacklist" title="cdr_alert.models.Blacklist"><tt class="xref py py-class docutils literal"><span class="pre">Blacklist</span></tt></a><a class="headerlink" href="#blacklist" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.models.Blacklist">
+<em class="property">class </em><tt class="descclassname">cdr_alert.models.</tt><tt class="descname">Blacklist</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.models.Blacklist" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the Blacklist</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">phonenumber_prefix</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">country</span></tt> -</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: alert_blacklist</p>
+</dd></dl>
+
+</div>
+<div class="section" id="whitelist">
+<span id="whitelist-model"></span><h2><a class="reference internal" href="#cdr_alert.models.Whitelist" title="cdr_alert.models.Whitelist"><tt class="xref py py-class docutils literal"><span class="pre">Whitelist</span></tt></a><a class="headerlink" href="#whitelist" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cdr_alert.models.Whitelist">
+<em class="property">class </em><tt class="descclassname">cdr_alert.models.</tt><tt class="descname">Whitelist</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.models.Whitelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>This defines the Blacklist</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">phonenumber_prefix</span></tt> -</li>
+<li><tt class="docutils literal"><span class="pre">country</span></tt> -</li>
+</ul>
+</div></blockquote>
+<p><strong>Name of DB table</strong>: alert_whitelist</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="database-design">
+<span id="id2"></span><h1>Database Design<a class="headerlink" href="#database-design" title="Permalink to this headline">¶</a></h1>
+<p>The current database schema is shown below:</p>
+<img alt="../_images/model_cdr-stats.png" src="../_images/model_cdr-stats.png" style="width: 1000px;" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Objects Description</a><ul>
+<li><a class="reference internal" href="#switch"><tt class="docutils literal"><span class="pre">Switch</span></tt></a></li>
+<li><a class="reference internal" href="#hangupcause"><tt class="docutils literal"><span class="pre">HangupCause</span></tt></a></li>
+<li><a class="reference internal" href="#userprofile"><tt class="docutils literal"><span class="pre">UserProfile</span></tt></a></li>
+<li><a class="reference internal" href="#alarm"><tt class="docutils literal"><span class="pre">Alarm</span></tt></a></li>
+<li><a class="reference internal" href="#alertremoveprefix"><tt class="docutils literal"><span class="pre">AlertRemovePrefix</span></tt></a></li>
+<li><a class="reference internal" href="#alarmreport"><tt class="docutils literal"><span class="pre">AlarmReport</span></tt></a></li>
+<li><a class="reference internal" href="#blacklist"><tt class="docutils literal"><span class="pre">Blacklist</span></tt></a></li>
+<li><a class="reference internal" href="#whitelist"><tt class="docutils literal"><span class="pre">Whitelist</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#database-design">Database Design</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="coding-structure.html"
+                        title="previous chapter">Coding Style &amp; Structure</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="views.html"
+                        title="next chapter">CDR-Stats Views</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="views.html" title="CDR-Stats Views"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="coding-structure.html" title="Coding Style &amp; Structure"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../developer-doc.html" >Developer doc</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

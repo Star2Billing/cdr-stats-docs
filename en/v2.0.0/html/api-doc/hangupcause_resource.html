@@ -1,0 +1,135 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HangupCauseResource &mdash; CDR-Stats 2.0.alpha documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="../index.html" />
+    <link rel="up" title="API Reference" href="../api-reference.html" />
+    <link rel="next" title="CdrDailyResource" href="cdr_daily_resource.html" />
+    <link rel="prev" title="SwitchResource" href="switch_resource.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cdr_daily_resource.html" title="CdrDailyResource"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="switch_resource.html" title="SwitchResource"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../api-reference.html" accesskey="U">API Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="module-api.resources"></span><div class="section" id="hangupcauseresource">
+<span id="hangupcause-model-resource"></span><h1><a class="reference internal" href="#api.resources.HangupCauseResource" title="api.resources.HangupCauseResource"><tt class="xref py py-class docutils literal"><span class="pre">HangupCauseResource</span></tt></a><a class="headerlink" href="#hangupcauseresource" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="api.resources.HangupCauseResource">
+<em class="property">class </em><tt class="descclassname">api.resources.</tt><tt class="descname">HangupCauseResource</tt><big>(</big><em>api_name=None</em><big>)</big><a class="headerlink" href="#api.resources.HangupCauseResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Attributes Details</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">code</span></tt> - ITU-T Q.850 Code.</li>
+<li><tt class="docutils literal"><span class="pre">enumeration</span></tt> - Enumeration</li>
+<li><tt class="docutils literal"><span class="pre">cause</span></tt> - cause</li>
+<li><tt class="docutils literal"><span class="pre">description</span></tt> - cause description</li>
+</ul>
+</div></blockquote>
+<p><strong>Read</strong>:</p>
+<blockquote>
+<div><p>CURL Usage:</p>
+<div class="highlight-python"><pre>curl -u username:password -H 'Accept: application/json' -X GET http://localhost:8000/api/v1/hangup_cause/?format=json</pre>
+</div>
+</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="switch_resource.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">SwitchResource</span></tt></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cdr_daily_resource.html"
+                        title="next chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">CdrDailyResource</span></tt></a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cdr_daily_resource.html" title="CdrDailyResource"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="switch_resource.html" title="SwitchResource"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+          <li><a href="../api-reference.html" >API Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>
