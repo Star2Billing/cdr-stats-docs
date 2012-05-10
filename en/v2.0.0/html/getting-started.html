@@ -85,7 +85,9 @@ and developer agility in mind. Instead of storing your data in tables and rows a
 you would with a relational database, in MongoDB you store JSON-like documents with
 dynamic schemas. The goal of MongoDB is to bridge the gap between key-value stores
 (which are fast and scalable) and relational databases (which have rich functionality).</p>
-<p>??? talk about Voip Switch supported</p>
+<p>Version 2.0 of CDR-Stats supports Asterisk and Freeswitch using connectors that get the CDR. Connectors
+for other switch systems can be built. Additionally CDR-Stats features a CSV upload facility so that
+CDR from virtually any source can be imported and analysed by CDR-Stats.</p>
 <div class="section" id="screenshot-dashboard">
 <h3>Screenshot Dashboard<a class="headerlink" href="#screenshot-dashboard" title="Permalink to this headline">¶</a></h3>
 <img alt="_images/dashboard1.png" src="_images/dashboard1.png" style="width: 1000px;" />
@@ -97,32 +99,45 @@ dynamic schemas. The goal of MongoDB is to bridge the gap between key-value stor
 </div>
 <div class="section" id="utility">
 <span id="id3"></span><h2><a class="toc-backref" href="#id9">Utility</a><a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h2>
-<p>CDR-Stats is a great tool to provide easy analysist of your calls, it&#8217;s a needed addition to your VoIP servers, if you are reselling or using VoIP services you will find CDR-Stats useful.
-You will be able to keep an eye quickly of what calls passing through your Switches and detect errors, failure but also receive alert if unexpected calls or type of traffic is happening through your server.</p>
+<p>CDR-Stats is a simple-to-use tool to provide easy analysis of calls. It is a recommended addition to
+telephony servers, whether it be a simple in-house PBX or large capacity VoIP switch. It shows in
+in near realtime what calls are going through, can detect errors and failures, and alert the systems
+administrator is unexpected traffic is noted.</p>
 </div>
 <div class="section" id="architecture">
 <span id="id4"></span><h2><a class="toc-backref" href="#id10">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>CDR-Stats uses MongoDB as the underlying CDR store. MongoDB allows querying and analysis of many
+millions of records without noticeable loss of performance, and can easily be scaled as demand increases.</p>
+<p>One of the three popular databases (MySQL / Postgresql / SQLite) is used for for managing CDR-Stats,
+such as users and managing the web framework, Django.</p>
+<p>Celery, a task manager runs in the background, and monitors the CDR coming into the system, and alerts
+the systems administrator when unusual behaviour is discovered. What is determined as unusual
+behaviour is determined by the administrator who can configure alerts for increases in dropped calls,
+average length of calls, or calls to unusual destinations.</p>
+<p>Freeswitch is supported using the mod_mongo module to write CDR directly into MongoDB. For other
+switches such as Asterisk, connectors can be built to connect to the switch&#8217;s database store, such as
+MySQL, SQLite, or Postgresql.</p>
 <p>Add graph on Architect</p>
 </div>
 <div class="section" id="features">
 <span id="id5"></span><h2><a class="toc-backref" href="#id11">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<p>A lot of features are provided on CDR-Stats, from browsing millions of CDRs, providing efficient search to build rich reporting such as monthly report, concurrent calls view, compare call traffic to previous days.</p>
+<p>Many features are provided on CDR-Stats, from browsing millions of CDRs, providing efficient search to build rich reporting such as monthly reports, concurrent calls view, and comparing call traffic to previous days.</p>
 <ul class="simple">
-<li>Visualize your traffic and help you to understand it</li>
-<li>Map view, see where the traffic comes from and where it goes</li>
-<li>Compare traffic to previous dates, see how your traffic evolve</li>
-<li>Monitor your VoIP server, set alert to detect frauds</li>
-<li>Send daily mail report of your VoIP traffic</li>
-<li>See your traffic in Realtime</li>
-<li>Blacklist Phone number paterns to receive alarm</li>
+<li>Visualise traffic which helps to identify unusual patterns.</li>
+<li>Map view, see where the traffic comes from and where it goes to</li>
+<li>Compare traffic to previous dates, see how your traffic evolves, and patterns change.</li>
+<li>Monitor VoIP server, set alerts to detect potential fraud</li>
+<li>Send daily mail reports of your VoIP traffic</li>
+<li>Traffic displayed in realtime</li>
+<li>Blacklist Phone number patterns to receive alarms</li>
 <li>Geographic alerts</li>
+<li>Multi-tenant, allowing many customer to monitor their own CDR on one instance of CDR-Stats</li>
+<li>Multi-switch, monitor traffic from many switches in one location</li>
 </ul>
-<p>Add more features</p>
 </div>
 <div class="section" id="latest-documentation">
 <span id="id6"></span><h2><a class="toc-backref" href="#id12">Latest documentation</a><a class="headerlink" href="#latest-documentation" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="http://cdr-stats.readthedocs.org/">latest documentation</a> with user guides, tutorials and API reference
-is hosted at &#8220;Readthedocs&#8221;.</p>
+<p>The <a class="reference external" href="http://www.cdr-stats.org/documentation/">latest documentation</a> with user guides, tutorials and API references is hosted on CDR-Stats website : <a class="reference external" href="http://www.cdr-stats.org/documentation/">http://www.cdr-stats.org/documentation/</a></p>
 </div>
 </div>
 

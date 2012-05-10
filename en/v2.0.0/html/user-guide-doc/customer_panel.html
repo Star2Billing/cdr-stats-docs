@@ -60,7 +60,7 @@
 <span id="id1"></span><h1>Customer Panel<a class="headerlink" href="#customer-panel" title="Permalink to this headline">¶</a></h1>
 <p>User Interface :</p>
 <p>This application provides a user interface...</p>
-<p><a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a></p>
+<p><a class="reference external" href="http://localhost:8008/">http://localhost:8008/</a></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#screenshot-with-features" id="id2">Screenshot with Features</a></li>
@@ -75,24 +75,25 @@
 </div>
 <div class="section" id="dashboard">
 <h3>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get pictorial view of current date&#8217;s calls and their
-call status statistics along with countries call statistics</p>
+<p>The dashboard displays a graphical representation of the last 24 hours calls, call status statistics
+and calls by country, either agregrated for all switches, or selectable by switch.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/dashboard/">http://localhost:8000/dashboard/</a></li>
+<li><a class="reference external" href="http://localhost:8008/dashboard/">http://localhost:8008/dashboard/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/dashboard.png" src="../_images/dashboard.png" style="width: 1000px;" />
 </div>
 <div class="section" id="cdr-view">
 <h3>CDR-View<a class="headerlink" href="#cdr-view" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get list of all call records in table format with day vise total
-call-count/call-duration detail in display</p>
+<p>Call detail records listed in table format which can be exported to CSV file.</p>
+<p>Advanced Search allows further filtering and searching on a range of criteria</p>
+<p>The Report by Day shows a graphical illustration of the calls, minutes and average call time.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/cdr_view/">http://localhost:8000/cdr_view/</a></li>
+<li><a class="reference external" href="http://localhost:8008/cdr_view/">http://localhost:8008/cdr_view/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/cdr_view_I.png" src="../_images/cdr_view_I.png" style="width: 1000px;" />
@@ -105,7 +106,7 @@ from any date or date-range</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/cdr_overview/">http://localhost:8000/cdr_overview/</a></li>
+<li><a class="reference external" href="http://localhost:8008/cdr_overview/">http://localhost:8008/cdr_overview/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/cdr_overview.png" src="../_images/cdr_overview.png" style="width: 1000px;" />
@@ -117,7 +118,7 @@ You can compare different dates</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/hourly_report/">http://localhost:8000/hourly_report/</a></li>
+<li><a class="reference external" href="http://localhost:8008/hourly_report/">http://localhost:8008/hourly_report/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/call_compare.png" src="../_images/call_compare.png" style="width: 1000px;" />
@@ -135,24 +136,24 @@ You can compare different dates</p>
 </div>
 <div class="section" id="cdr-country-report">
 <h3>CDR-Country-Report<a class="headerlink" href="#cdr-country-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get pictorial view of all calls country vise. Also
+<p>In this view, you can get pictorial view of all calls by country. Also
 you can have 10 most called countries name with pie chart</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/country_report/">http://localhost:8000/country_report/</a></li>
+<li><a class="reference external" href="http://localhost:8008/country_report/">http://localhost:8008/country_report/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/country_report.png" src="../_images/country_report.png" style="width: 1000px;" />
 </div>
 <div class="section" id="mail-report">
 <h3>Mail-Report<a class="headerlink" href="#mail-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get report of last 10 calls of previous day. Also
-you can have total calls, call status &amp; 5 most called countries detail</p>
+<p>In this view, there is a list of the last 10 calls of the previous day, along with total calls, a
+breakdown of the call status, and the top 5 countries called.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/mail_report/">http://localhost:8000/mail_report/</a></li>
+<li><a class="reference external" href="http://localhost:8008/mail_report/">http://localhost:8008/mail_report/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/mail_report.png" src="../_images/mail_report.png" style="width: 1000px;" />
@@ -163,18 +164,19 @@ you can have total calls, call status &amp; 5 most called countries detail</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/cdr_concurrent_calls/">http://localhost:8000/cdr_concurrent_calls/</a></li>
+<li><a class="reference external" href="http://localhost:8008/cdr_concurrent_calls/">http://localhost:8008/cdr_concurrent_calls/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/concurrent_call.png" src="../_images/concurrent_call.png" style="width: 1000px;" />
 </div>
 <div class="section" id="realtime-report">
 <h3>Realtime-Report<a class="headerlink" href="#realtime-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can monitor in realtime the traffic on your voip servers</p>
+<p>In this view, you can monitor in realtime the traffic on your voip servers. Currently, only Freeswitch
+is supported.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://localhost:8000/cdr_realtime/">http://localhost:8000/cdr_realtime/</a></li>
+<li><a class="reference external" href="http://localhost:8008/cdr_realtime/">http://localhost:8008/cdr_realtime/</a></li>
 </ul>
 </div></blockquote>
 <img alt="../_images/realtime.png" src="../_images/realtime.png" style="width: 1000px;" />
