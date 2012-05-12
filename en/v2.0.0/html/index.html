@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,7 +8,7 @@
     
     <title>Welcome to CDR-Stats documentation! &mdash; CDR-Stats 2.0.alpha documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -50,7 +48,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-cdr-stats-documentation">
+
+    <div class="section" id="welcome-to-cdr-stats-documentation">
 <h1>Welcome to CDR-Stats documentation!<a class="headerlink" href="#welcome-to-cdr-stats-documentation" title="Permalink to this headline">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -60,7 +59,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Release:</th><td class="field-body">2.0.alpha</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">May 02, 2012</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">May 12, 2012</td>
 </tr>
 </tbody>
 </table>
@@ -68,15 +67,13 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="getting-started.html#screenshot-dashboard">Screenshot Dashboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getting-started.html#screenshot-admin-ui">Screenshot Admin UI</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#utility">Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#dashboard">Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#admin-panel">Admin Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#notes-for-later">Notes for later</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#latest-documentation">Latest documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#utility">Utility</a></li>
 </ul>
 </li>
 </ul>
@@ -114,25 +111,18 @@
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-doc/switch_resource.html"><tt class="docutils literal"><span class="pre">SwitchResource</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-doc/hangupcause_resource.html"><tt class="docutils literal"><span class="pre">HangupCauseResource</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-doc/cdr_daily_resource.html"><tt class="docutils literal"><span class="pre">CdrDailyResource</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-doc/cdr_resource.html"><tt class="docutils literal"><span class="pre">CdrResource</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
 </ul>
-</li>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#community-code-of-conduct">Community Code of Conduct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#reporting-a-bug">Reporting a Bug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#coding-style">Coding Style</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#general">General</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#where-to-find-help">Where to find help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#where-to-find-the-log-files">Where to find the log files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#run-in-debug-mode">Run in debug mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#celerymon">Celerymon</a></li>
@@ -142,10 +132,15 @@
 <li class="toctree-l2"><a class="reference internal" href="resources.html#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html#bug-tracker">Bug tracker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html#documentation">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resources.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#support">Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html#license">License</a></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -159,22 +154,15 @@
 </div>
 
 
+
           </div>
         </div>
       </div>
       <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Welcome to CDR-Stats documentation!</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="#">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
 
-  <h4>Next topic</h4>
-  <p class="topless"><a href="getting-started.html"
-                        title="next chapter">Getting Started</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">

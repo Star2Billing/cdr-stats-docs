@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,7 +8,7 @@
     
     <title>Getting Started &mdash; CDR-Stats 2.0.alpha documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -54,24 +52,41 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <p>&#8211;</p>
-<div class="section" id="getting-started">
+
+    <div class="section" id="getting-started">
 <span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Web:</th><td class="field-body"><a class="reference external" href="http://www.cdr-stats.org/">http://www.cdr-stats.org/</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Download:</th><td class="field-body"><a class="reference external" href="http://www.cdr-stats.org/download/">http://www.cdr-stats.org/download/</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Source:</th><td class="field-body"><a class="reference external" href="https://github.com/Star2Billing/cdr-stats/">https://github.com/Star2Billing/cdr-stats/</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body">voip, freeswitch, asterisk, django, python, call, reporting, CDR, mongoDB</td>
+</tr>
+</tbody>
+</table>
+<p>&#8211;</p>
 <p>CDR-Stats is free and open source call detail record analysis and reporting software for Freeswitch,
 Asterisk and other type of VoIP Switch. It allows you to interrogate your CDR to provide reports
 and statistics via a simple to use, yet powerful, web interface.</p>
 <p>It is based on the Django Python Framework, Celery, SocketIO, Gevent and MongoDB.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#overview" id="id8">Overview</a></li>
-<li><a class="reference internal" href="#utility" id="id9">Utility</a></li>
-<li><a class="reference internal" href="#architecture" id="id10">Architecture</a></li>
+<li><a class="reference internal" href="#overview" id="id6">Overview</a></li>
+<li><a class="reference internal" href="#dashboard" id="id7">Dashboard</a></li>
+<li><a class="reference internal" href="#admin-panel" id="id8">Admin Panel</a></li>
+<li><a class="reference internal" href="#architecture" id="id9">Architecture</a></li>
+<li><a class="reference internal" href="#notes-for-later" id="id10">Notes for later</a></li>
 <li><a class="reference internal" href="#features" id="id11">Features</a></li>
-<li><a class="reference internal" href="#latest-documentation" id="id12">Latest documentation</a></li>
+<li><a class="reference internal" href="#utility" id="id12">Utility</a></li>
 </ul>
 </div>
 <div class="section" id="overview">
-<span id="id2"></span><h2><a class="toc-backref" href="#id8">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2><a class="toc-backref" href="#id6">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>CDR-Stats is an application that allows you to browse and analyse CDR (Call Detail Records).</p>
 <p>Different reporting tools are provided:</p>
 <ul class="simple">
@@ -85,84 +100,120 @@ and developer agility in mind. Instead of storing your data in tables and rows a
 you would with a relational database, in MongoDB you store JSON-like documents with
 dynamic schemas. The goal of MongoDB is to bridge the gap between key-value stores
 (which are fast and scalable) and relational databases (which have rich functionality).</p>
-<p>Version 2.0 of CDR-Stats supports Asterisk and Freeswitch using connectors that get the CDR. Connectors
+<p>CDR-Stats supports Freeswitch and Asterisk using connectors that get the CDR. Connectors
 for other switch systems can be built. Additionally CDR-Stats features a CSV upload facility so that
 CDR from virtually any source can be imported and analysed by CDR-Stats.</p>
-<div class="section" id="screenshot-dashboard">
-<h3>Screenshot Dashboard<a class="headerlink" href="#screenshot-dashboard" title="Permalink to this headline">¶</a></h3>
-<img alt="_images/dashboard1.png" src="_images/dashboard1.png" style="width: 1000px;" />
 </div>
-<div class="section" id="screenshot-admin-ui">
-<h3>Screenshot Admin UI<a class="headerlink" href="#screenshot-admin-ui" title="Permalink to this headline">¶</a></h3>
-<img alt="_images/admin_dashboard1.png" src="_images/admin_dashboard1.png" style="width: 1000px;" />
+<div class="section" id="dashboard">
+<span id="screenshot-dashboard"></span><h2><a class="toc-backref" href="#id7">Dashboard</a><a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h2>
+<p>User Dashboard helps the user to monitor in realtime the most relevant factors of his swiches.</p>
+<img alt="_images/dashboard.png" src="_images/dashboard.png" style="width: 650px;" />
 </div>
-</div>
-<div class="section" id="utility">
-<span id="id3"></span><h2><a class="toc-backref" href="#id9">Utility</a><a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h2>
-<p>CDR-Stats is a simple-to-use tool to provide easy analysis of calls. It is a recommended addition to
-telephony servers, whether it be a simple in-house PBX or large capacity VoIP switch. It shows in
-in near realtime what calls are going through, can detect errors and failures, and alert the systems
-administrator is unexpected traffic is noted.</p>
+<div class="section" id="admin-panel">
+<span id="screenshot-admin-panel"></span><h2><a class="toc-backref" href="#id8">Admin Panel</a><a class="headerlink" href="#admin-panel" title="Permalink to this headline">¶</a></h2>
+<p>Admin Panels will allow the administrators to configure the entire reporting platform, import CDR in csv and much more.</p>
+<img alt="_images/admin_dashboard.png" src="_images/admin_dashboard.png" style="width: 950px;" />
 </div>
 <div class="section" id="architecture">
-<span id="id4"></span><h2><a class="toc-backref" href="#id10">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2><a class="toc-backref" href="#id9">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
 <p>CDR-Stats uses MongoDB as the underlying CDR store. MongoDB allows querying and analysis of many
 millions of records without noticeable loss of performance, and can easily be scaled as demand increases.</p>
-<p>One of the three popular databases (MySQL / Postgresql / SQLite) is used for for managing CDR-Stats,
+<p>One of the three popular databases (MySQL / Postgresql / SQLite) is used for managing CDR-Stats,
 such as users and managing the web framework, Django.</p>
 <p>Celery, a task manager runs in the background, and monitors the CDR coming into the system, and alerts
 the systems administrator when unusual behaviour is discovered. What is determined as unusual
 behaviour is determined by the administrator who can configure alerts for increases in dropped calls,
 average length of calls, or calls to unusual destinations.</p>
+<p>At the moment Freeswitch and Asterisk are supported, for other switches such as OpenSIPs or Kamailio,
+connectors can be built to connect to the CDR database store and import them in realtime to CDR-Stats.</p>
+<img alt="_images/CDR-Stats-Architecture.png" src="_images/CDR-Stats-Architecture.png" style="width: 600px;" />
+</div>
+<div class="section" id="notes-for-later">
+<span id="notes"></span><h2><a class="toc-backref" href="#id10">Notes for later</a><a class="headerlink" href="#notes-for-later" title="Permalink to this headline">¶</a></h2>
 <p>Freeswitch is supported using the mod_mongo module to write CDR directly into MongoDB. For other
 switches such as Asterisk, connectors can be built to connect to the switch&#8217;s database store, such as
 MySQL, SQLite, or Postgresql.</p>
-<p>Add graph on Architect</p>
 </div>
 <div class="section" id="features">
-<span id="id5"></span><h2><a class="toc-backref" href="#id11">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id11">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <p>Many features are provided on CDR-Stats, from browsing millions of CDRs, providing efficient search to build rich reporting such as monthly reports, concurrent calls view, and comparing call traffic to previous days.</p>
-<ul class="simple">
-<li>Visualise traffic which helps to identify unusual patterns.</li>
-<li>Map view, see where the traffic comes from and where it goes to</li>
-<li>Compare traffic to previous dates, see how your traffic evolves, and patterns change.</li>
-<li>Monitor VoIP server, set alerts to detect potential fraud</li>
-<li>Send daily mail reports of your VoIP traffic</li>
-<li>Traffic displayed in realtime</li>
-<li>Blacklist Phone number patterns to receive alarms</li>
-<li>Geographic alerts</li>
-<li>Multi-tenant, allowing many customer to monitor their own CDR on one instance of CDR-Stats</li>
-<li>Multi-switch, monitor traffic from many switches in one location</li>
-</ul>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Telephony Reporting</td>
+<td>Based on leading open source Freeswitch, Asterisk</td>
+</tr>
+<tr class="row-even"><td>Multi-switch</td>
+<td>monitor traffic from many switches in one location</td>
+</tr>
+<tr class="row-odd"><td>Multi-tenant</td>
+<td>allowing many customer to monitor their own CDR on
+one instance of CDR-Stats.</td>
+</tr>
+<tr class="row-even"><td>Distributed</td>
+<td>Runs on one or more machines. Supports
+broker <cite>clustering</cite> and <cite>HA</cite>. You can set up new
+workers without central configuration.</td>
+</tr>
+<tr class="row-odd"><td>Fraud detection</td>
+<td>Visualise traffic which helps to identify unusual
+patterns.</td>
+</tr>
+<tr class="row-even"><td>Fraud Alert</td>
+<td>Send emails to the administrator when fraud are
+or suspicious paterns occur</td>
+</tr>
+<tr class="row-odd"><td>Error Emails</td>
+<td>Can be configured to send emails to the
+administrator if a tasks fails.</td>
+</tr>
+<tr class="row-even"><td>Import CDR</td>
+<td>Import CDR files in custom format</td>
+</tr>
+<tr class="row-odd"><td>World Map view</td>
+<td>see where the traffic comes goes to on a Map</td>
+</tr>
+<tr class="row-even"><td>Compare traffic</td>
+<td>see how your traffic evolves, and patterns change.</td>
+</tr>
+<tr class="row-odd"><td>Mail Reporting</td>
+<td>Send daily mail reports of your VoIP traffic</td>
+</tr>
+<tr class="row-even"><td>Realtime Reporting</td>
+<td>Traffic displayed in realtime</td>
+</tr>
+<tr class="row-odd"><td>Blacklist</td>
+<td>Blacklist Phone number patterns to receive alarms</td>
+</tr>
+<tr class="row-even"><td>Geographic alerts</td>
+<td>Set alert if calls goes to disallower countries</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 </div>
-<div class="section" id="latest-documentation">
-<span id="id6"></span><h2><a class="toc-backref" href="#id12">Latest documentation</a><a class="headerlink" href="#latest-documentation" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="http://www.cdr-stats.org/documentation/">latest documentation</a> with user guides, tutorials and API references is hosted on CDR-Stats website : <a class="reference external" href="http://www.cdr-stats.org/documentation/">http://www.cdr-stats.org/documentation/</a></p>
+<div class="section" id="utility">
+<span id="id5"></span><h2><a class="toc-backref" href="#id12">Utility</a><a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h2>
+<p>CDR-Stats is a simple-to-use tool to provide easy analysis of calls. It is a recommended addition to
+telephony servers, whether it be a simple in-house PBX or large capacity VoIP switch. It shows in
+in near realtime what calls are going through, can detect errors and failures, and alert the systems
+administrator is unexpected traffic is noted.</p>
 </div>
 </div>
+
 
 
           </div>
         </div>
       </div>
       <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Getting Started</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a><ul>
-<li><a class="reference internal" href="#screenshot-dashboard">Screenshot Dashboard</a></li>
-<li><a class="reference internal" href="#screenshot-admin-ui">Screenshot Admin UI</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#utility">Utility</a></li>
-<li><a class="reference internal" href="#architecture">Architecture</a></li>
-<li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#latest-documentation">Latest documentation</a></li>
-</ul>
-</li>
-</ul>
-
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Welcome to CDR-Stats documentation!</a></p>

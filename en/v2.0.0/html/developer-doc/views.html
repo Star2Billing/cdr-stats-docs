@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,7 +8,7 @@
     
     <title>CDR-Stats Views &mdash; CDR-Stats 2.0.alpha documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -56,7 +54,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-cdr.views">
+
+    <div class="section" id="module-cdr.views">
 <span id="cdr-stats-views"></span><span id="views"></span><h1>CDR-Stats Views<a class="headerlink" href="#module-cdr.views" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="index">
 <span id="index-view"></span><h2><a class="reference internal" href="#cdr.views.index" title="cdr.views.index"><tt class="xref py py-class docutils literal"><span class="pre">index</span></tt></a><a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h2>
@@ -269,6 +268,30 @@ current date</div></blockquote>
 </dd></dl>
 
 </div></blockquote>
+</div>
+<div class="section" id="world-map-view">
+<span id="cdr-world-calls"></span><h2><a class="reference internal" href="#cdr.views.world_map_view" title="cdr.views.world_map_view"><tt class="xref py py-class docutils literal"><span class="pre">world_map_view</span></tt></a><a class="headerlink" href="#world-map-view" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="cdr.views.world_map_view">
+<tt class="descclassname">cdr.views.</tt><tt class="descname">world_map_view</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#cdr.views.world_map_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>CDR world report</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/world_map.html</li>
+<li><tt class="docutils literal"><span class="pre">form</span></tt> - WorldForm</li>
+<li><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - CDR_MONGO_CDR_COUNTRY_REPORT / CDR_MONGO_CDR_COUNTRY</li>
+<li><tt class="docutils literal"><span class="pre">map_reduce</span></tt> - mapreduce_cdr_country_report()</li>
+</ul>
+</div></blockquote>
+<p><strong>Logic Description</strong>:</p>
+<blockquote>
+<div>get all call records from mongodb collection for all countries
+to create country call</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
 <span class="target" id="module-user_profile.views"></span></div>
 <div class="section" id="customer-detail-change">
 <span id="id8"></span><h2><a class="reference internal" href="#user_profile.views.customer_detail_change" title="user_profile.views.customer_detail_change"><tt class="xref py py-class docutils literal"><span class="pre">customer_detail_change</span></tt></a><a class="headerlink" href="#customer-detail-change" title="Permalink to this headline">¶</a></h2>
@@ -297,28 +320,14 @@ current date</div></blockquote>
 </div>
 
 
+
           </div>
         </div>
       </div>
       <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">CDR-Stats Views</a><ul>
-<li><a class="reference internal" href="#index"><tt class="docutils literal"><span class="pre">index</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-view"><tt class="docutils literal"><span class="pre">cdr_view</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-detail"><tt class="docutils literal"><span class="pre">cdr_detail</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-global-report"><tt class="docutils literal"><span class="pre">cdr_global_report</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-dashboard"><tt class="docutils literal"><span class="pre">cdr_dashboard</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-overview"><tt class="docutils literal"><span class="pre">cdr_overview</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-realtime"><tt class="docutils literal"><span class="pre">cdr_realtime</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-graph-by-hour"><tt class="docutils literal"><span class="pre">cdr_graph_by_hour</span></tt></a></li>
-<li><a class="reference internal" href="#cdr-concurrent-calls"><tt class="docutils literal"><span class="pre">cdr_concurrent_calls</span></tt></a></li>
-<li><a class="reference internal" href="#customer-detail-change"><tt class="docutils literal"><span class="pre">customer_detail_change</span></tt></a></li>
-</ul>
-</li>
-</ul>
-
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="objects-description.html"
                         title="previous chapter">Objects Description</a></p>
