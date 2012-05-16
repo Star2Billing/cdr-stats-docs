@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting Started &mdash; CDR-Stats 2.0.alpha documentation</title>
+    <title>Getting Started &mdash; CDR-Stats 2.0.beta documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.alpha',
+        VERSION:     '2.0.beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="index.html" />
-    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" />
+    <link rel="next" title="MongoDB" href="mongodb-architecture.html" />
     <link rel="prev" title="Welcome to CDR-Stats documentation!" href="index.html" /> 
   </head>
   <body>
@@ -38,12 +38,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="mongodb-architecture.html" title="MongoDB"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to CDR-Stats documentation!"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -80,9 +80,8 @@ and statistics via a simple to use, yet powerful, web interface.</p>
 <li><a class="reference internal" href="#dashboard" id="id7">Dashboard</a></li>
 <li><a class="reference internal" href="#admin-panel" id="id8">Admin Panel</a></li>
 <li><a class="reference internal" href="#architecture" id="id9">Architecture</a></li>
-<li><a class="reference internal" href="#notes-for-later" id="id10">Notes for later</a></li>
-<li><a class="reference internal" href="#features" id="id11">Features</a></li>
-<li><a class="reference internal" href="#utility" id="id12">Utility</a></li>
+<li><a class="reference internal" href="#features" id="id10">Features</a></li>
+<li><a class="reference internal" href="#utility" id="id11">Utility</a></li>
 </ul>
 </div>
 <div class="section" id="overview">
@@ -95,11 +94,9 @@ and statistics via a simple to use, yet powerful, web interface.</p>
 <li>Analyse CDR : Analyse and compare call volumes with the previous day’s traffic.</li>
 <li>Daily Traffic : Graph and filter traffic loads by hour during the day.</li>
 </ul>
-<p>MongoDB is an open source, document-oriented database designed with both scalability
-and developer agility in mind. Instead of storing your data in tables and rows as
-you would with a relational database, in MongoDB you store JSON-like documents with
-dynamic schemas. The goal of MongoDB is to bridge the gap between key-value stores
-(which are fast and scalable) and relational databases (which have rich functionality).</p>
+<p>CDR Stats uses MongoDB, a scalable, high performance database system used to analyse
+large quantities of CDR data. MongoDB is an open source, document-oriented database
+designed with both scalability and developer agility in mind.</p>
 <p>CDR-Stats supports Freeswitch and Asterisk using connectors that get the CDR. Connectors
 for other switch systems can be built. Additionally CDR-Stats features a CSV upload facility so that
 CDR from virtually any source can be imported and analysed by CDR-Stats.</p>
@@ -129,15 +126,8 @@ average length of calls, or calls to unusual destinations.</p>
 connectors can be built to connect to the CDR database store and import them in realtime to CDR-Stats.</p>
 <img alt="_images/CDR-Stats-Architecture.png" src="_images/CDR-Stats-Architecture.png" style="width: 600px;" />
 </div>
-<div class="section" id="notes-for-later">
-<span id="notes"></span><h2><a class="toc-backref" href="#id10">Notes for later</a><a class="headerlink" href="#notes-for-later" title="Permalink to this headline">¶</a></h2>
-<p>Freeswitch is supported using the mod_cdr_mongo module to write CDR directly into MongoDB.
-Asterisk is supported with a connector that links to the CDR store in MySQL. For other
-switches, connectors can be built to connect to the switch&#8217;s CDR database store, such as
-MySQL, SQLite, or Postgresql.</p>
-</div>
 <div class="section" id="features">
-<span id="id4"></span><h2><a class="toc-backref" href="#id11">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id10">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <p>Many features are provided on CDR-Stats, from browsing millions of CDRs, providing
 efficient search facilities to build reporting such as monthly reports, concurrent calls
 view, and comparing call traffic with previous days.</p>
@@ -160,11 +150,9 @@ supported as standard.</td>
 on one instance of CDR-Stats.</td>
 </tr>
 <tr class="row-even"><td>Distributed</td>
-<td><blockquote class="first">
-<div>Runs on one or more machines. Supports
-broker <cite>clustering</cite> and <cite>HA</cite>. New workers  can be</div></blockquote>
-<p class="last">set up without central configuration.</p>
-</td>
+<td>Runs on one or more machines. Supports
+broker <cite>clustering</cite> and <cite>HA</cite>. New workers  can be
+set up without central configuration.</td>
 </tr>
 <tr class="row-odd"><td>Fraud detection</td>
 <td>Visualise traffic which helps to identify unusual
@@ -182,10 +170,8 @@ administrator if a tasks fails.</td>
 <td>Import CDR files in custom format</td>
 </tr>
 <tr class="row-odd"><td>World Map view</td>
-<td><blockquote class="first">
-<div>see where the traffic originates and terminates on</div></blockquote>
-<p class="last">a Map</p>
-</td>
+<td>see where the traffic originates and terminates on
+a Map</td>
 </tr>
 <tr class="row-even"><td>Compare traffic</td>
 <td>see how your traffic evolves, and patterns change.</td>
@@ -207,7 +193,7 @@ administrator if a tasks fails.</td>
 </div></blockquote>
 </div>
 <div class="section" id="utility">
-<span id="id5"></span><h2><a class="toc-backref" href="#id12">Utility</a><a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2><a class="toc-backref" href="#id11">Utility</a><a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h2>
 <p>CDR-Stats is a simple-to-use tool to provide easy analysis of calls. It is a recommended addition to
 telephony servers, whether it be a simple in-house PBX or large capacity VoIP switch. It shows in
 in near realtime what calls are going through, can detect errors and failures, and alert the systems
@@ -228,8 +214,8 @@ administrator is unexpected traffic is noted.</p>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Welcome to CDR-Stats documentation!</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="next chapter">Installation</a></p>
+  <p class="topless"><a href="mongodb-architecture.html"
+                        title="next chapter">MongoDB</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -257,12 +243,12 @@ administrator is unexpected traffic is noted.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="mongodb-architecture.html" title="MongoDB"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to CDR-Stats documentation!"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation with FreeSWITCH &mdash; CDR-Stats 2.0.beta documentation</title>
+    
+    <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2.0.beta',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" />
+    <link rel="up" title="Installation" href="installation.html" />
+    <link rel="next" title="Broker Installation" href="broker/broker-installation.html" />
+    <link rel="prev" title="Installation with Asterisk" href="installation-asterisk.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="broker/broker-installation.html" title="Broker Installation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation-asterisk.html" title="Installation with Asterisk"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+
+    <div class="section" id="installation-with-freeswitch">
+<span id="freeswitch-installation-overview"></span><h1>Installation with FreeSWITCH<a class="headerlink" href="#installation-with-freeswitch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation-via-script">
+<span id="freeswitch-installation-via-script"></span><h2>Installation via Script<a class="headerlink" href="#installation-via-script" title="Permalink to this headline">¶</a></h2>
+<p>On an existing installation of Freeswitch, mod_cdr_mongodb needs to be
+compiled into Freeswitch. This procedure is described at
+<a class="reference external" href="http://wiki.freeswitch.org/wiki/Mod_cdr_mongodb">http://wiki.freeswitch.org/wiki/Mod_cdr_mongodb</a></p>
+<p>After having recompiled Freeswitch to support MongoDB CDR, make the
+following changes:</p>
+<p>In freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml</p>
+<p>Change:</p>
+<div class="highlight-python"><pre>&lt;param name="log-b-leg" value="false"/&gt;</pre>
+</div>
+<p>To:</p>
+<div class="highlight-python"><pre>&lt;param name="log-b-leg" value="true"/&gt;</pre>
+</div>
+<p>Change:</p>
+<div class="highlight-python"><pre>&lt;param name="namespace" value="test.cdr"/&gt;</pre>
+</div>
+<p>To:</p>
+<div class="highlight-python"><pre>&lt;param name="namespace" value="freeswitch_cdr.cdr"/&gt;</pre>
+</div>
+<p>Then reload the Freeswitch configuration.</p>
+<p><strong>Now run the following commands at the console</strong>:</p>
+<div class="highlight-python"><pre>$ wget –no-check-certificate https://raw.github.com/Star2Billing/cdr-stats/master/install/install-cdr-stats.sh -O install-cdr-stats.sh
+$
+$ bash install-cdr-stats.sh</pre>
+</div>
+<p>When prompted, chose the option to install the Freeswitch version.</p>
+<p>The install routine will ask a number of questions, all of which are self explanatory.</p>
+</div>
+<div class="section" id="installation-on-new-server">
+<span id="freeswitch-installation-new-server"></span><h2>Installation on New Server<a class="headerlink" href="#installation-on-new-server" title="Permalink to this headline">¶</a></h2>
+<p>Another script is available to install Freeswitch along with CDR-Stats.
+This script is intended to be run on a fresh Ubuntu 12.04 LTS or CentOS 6.2 installation:</p>
+<div class="highlight-python"><pre>$ wget –no-check-certificate https://raw.github.com/Star2Billing/cdr-stats/master/install/install-all-cdr-stats-freeswitch.sh -O install-all-cdr-stats-freeswitch.sh
+$
+$ bash install-all-cdr-stats-freeswitch.sh</pre>
+</div>
+<p>The install routine will ask a number of questions, all of which are self explanatory.</p>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation-asterisk.html"
+                        title="previous chapter">Installation with Asterisk</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="broker/broker-installation.html"
+                        title="next chapter">Broker Installation</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="broker/broker-installation.html" title="Broker Installation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation-asterisk.html" title="Installation with Asterisk"
+             >previous</a> |</li>
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
+          <li><a href="installation.html" >Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

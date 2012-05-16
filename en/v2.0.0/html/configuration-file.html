@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Sample Configuration &mdash; CDR-Stats 2.0.alpha documentation</title>
+    <title>Configuration &mdash; CDR-Stats 2.0.beta documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.alpha',
+        VERSION:     '2.0.beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" />
     <link rel="up" title="Configuration and Defaults" href="configuration-defaults.html" />
     <link rel="next" title="Celery Configuration" href="celery/celery-configuration.html" />
     <link rel="prev" title="Configuration and Defaults" href="configuration-defaults.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="configuration-defaults.html" title="Configuration and Defaults"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
           <li><a href="configuration-defaults.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>  
@@ -55,12 +55,8 @@
           <div class="body">
             
 
-    <div class="section" id="sample-configuration">
-<span id="conf-example"></span><h1>Sample Configuration<a class="headerlink" href="#sample-configuration" title="Permalink to this headline">¶</a></h1>
-<p>This is a sample configuration to get started should you chose not to use the install script.
-It should contain all that is needed to create a basic set-up.</p>
-<div class="section" id="the-configuration-module">
-<h2>The Configuration Module<a class="headerlink" href="#the-configuration-module" title="Permalink to this headline">¶</a></h2>
+    <div class="section" id="configuration">
+<span id="confifuration"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>Some of the more important parts of the configuration module for the cdr_stats,
 <tt class="docutils literal"><span class="pre">settings.py</span></tt>, are explained below:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os.path</span>
@@ -160,24 +156,93 @@ CDR_MONGO_PORT = 27017</pre>
 <p>tells Django which applications (custom and external) to use in your project.
 The custom applications, <tt class="docutils literal"><span class="pre">cdr</span></tt> etc. are stored in the project folder along with
 these custom applications.</p>
-<p>Configure different switches</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#MongoDB(s) to use for import</span>
-<span class="n">CDR_MONGO_IMPORT</span> <span class="o">=</span> <span class="p">{</span>
+<div class="section" id="country-reporting">
+<span id="confifuration-country-reporting"></span><h2>Country Reporting<a class="headerlink" href="#country-reporting" title="Permalink to this headline">¶</a></h2>
+<p>CDR-Stats is able to identify the destination country of the call. This is a
+useful fraud prevention measure, so that calls to unexpected destinations
+are immediately apparent. Places that should not be called should be added
+in the Blacklist in the admin section so that these destinations are
+highlighted in the call data records.</p>
+<p>However, in order to get accurate reporting, the call detail records have to
+be in international format, e.g. in the USA, this means 11 digit numbers,
+beginning with a 1, and for other countries, the numbers called should be
+prefixed with the international dial code.</p>
+<p>There is a facility for manipulating the dialled digits reported in the call
+detail records, as well as identifying calls as internal calls. This is done
+in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.</p>
+<p>PHONENUMBER_PREFIX_LIMIT_MIN &amp; PHONENUMBER_PREFIX_LIMIT_MAX are used to determine how many digits are used to match against the dialcode prefix database, e.g</p>
+<ul class="simple">
+<li><strong>PHONENUMBER_PREFIX_LIMIT_MIN = 2</strong></li>
+<li><strong>PHONENUMBER_PREFIX_LIMIT_MAX = 5</strong></li>
+</ul>
+<p>If a phone number has less digits  than PHONENUMBER_MIN_DIGITS it will be considered an extension:</p>
+<div class="highlight-python"><pre>* **PHONENUMBER_MIN_DIGITS = 6**
+* **PHONENUMBER_MAX_DIGITS = 9**</pre>
+</div>
+<p>If a phone number has more digits than PHONENUMBER_DIGITS_MIN but less than PHONE_DIGITS_MAX then the phone number will be considered as local or national call and the LOCAL_DIALCODE will be added.</p>
+<ul class="simple">
+<li><strong>LOCAL_DIALCODE = 1</strong></li>
+</ul>
+<p>Set the dialcode of your country (44 for UK, 1 for US)</p>
+<ul class="simple">
+<li><strong>PREFIX_TO_IGNORE = &#8220;+,0,00,000,0000,00000,011,55555,99999&#8221;</strong></li>
+</ul>
+<p>List of prefixes to ignore, these prefixes are removed from the phone number prior to analysis.</p>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>So for the USA, to cope with 10 or 11 digit dialling, PHONENUMBER_MAX_DIGITS would be set to 10, and LOCAL_DIALCODE set to 1. Thus 10 digit numbers would have a 1 added, but 11 digit numbers are left untouched.</p>
+<p>In the UK, the number of significant digits is either 9 or 10 after the &#8220;0&#8221; trunk code. So to ensure that all UK numbers had 44 prefixed to them and the single leading 0 removed, the prefixes to ignore would include 0, the PHONENUMBER_MAX_DIGITS would be set to 10, and the LOCAL_DIALCODE would be 44.</p>
+<p>In Spain, where there is no &#8220;0&#8221; trunk code, and the length of all numbers is 9, then the PHONENUMBER_MAX_DIGITS  would be set to 9, and the LOCAL_DIALCODE set to 34.</p>
+<p>NB: After changing this file, then both celery and apache should be restarted.</p>
+</div>
+</div>
+<div class="section" id="import-configuration-for-asterisk">
+<span id="confifuration-asterisk"></span><h2>Import configuration for Asterisk<a class="headerlink" href="#import-configuration-for-asterisk" title="Permalink to this headline">¶</a></h2>
+<p>The asterisk settings may be as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ASTERISK_CDR_MYSQL_IMPORT</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;127.0.0.1&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr-stats&#39;</span><span class="p">,</span>
+       <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;asteriskcdrdb&#39;</span><span class="p">,</span>
+       <span class="s">&#39;table_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
+       <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+       <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="s">&#39;root&#39;</span><span class="p">,</span>
+       <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c">#&#39;192.168.1.200&#39;: {</span>
+        <span class="c">#&#39;db_name&#39;: &#39;asteriskcdrdb&#39;,</span>
+        <span class="c">#&#39;table_name&#39;: &#39;cdr&#39;,</span>
+        <span class="c">#&#39;host&#39;: &#39;localhost&#39;,</span>
+        <span class="c">#&#39;user&#39;: &#39;root&#39;,</span>
+        <span class="c">#&#39;password&#39;: &#39;passw0rd&#39;,</span>
+    <span class="c">#},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To add a new remote Asterisk MySQL CDR store, you would ensure connection to the remote MySQL database, then uncomment the new server settings by removing the # and configuring the credentials to connect to the remote Asterisk CDR store.</p>
+</div>
+<div class="section" id="import-configuration-for-freeswitch">
+<span id="confifuration-freeswitch"></span><h2>Import configuration for FreeSWITCH<a class="headerlink" href="#import-configuration-for-freeswitch" title="Permalink to this headline">¶</a></h2>
+<p>Freeswitch settings are under the CDR_MONGO_IMPORT section, and should look as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CDR_MONGO_IMPORT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;127.0.0.1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;freeswitch_cdr&#39;</span><span class="p">,</span>
         <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
         <span class="s">&#39;port&#39;</span><span class="p">:</span> <span class="mi">27017</span><span class="p">,</span>
         <span class="s">&#39;collection&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="c">#&#39;192.168.1.15&#39;: {</span>
-    <span class="c">#    &#39;db_name&#39;: &#39;freeswitch_cdr&#39;,</span>
-    <span class="c">#    &#39;host&#39;: &#39;192.168.1.15&#39;,</span>
-    <span class="c">#    &#39;port&#39;: 27017,</span>
-    <span class="c">#    &#39;collection&#39;: &#39;cdr&#39;,</span>
+        <span class="c"># &#39;db_name&#39;: &#39;freeswitch_cdr&#39;,</span>
+        <span class="c"># &#39;host&#39;: &#39;192.168.1.15&#39;,</span>
+        <span class="c"># &#39;port&#39;: 27017,</span>
+        <span class="c"># &#39;collection&#39;: &#39;cdr&#39;,</span>
     <span class="c">#},</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>To connect a new Freeswitch system to CDR-Stats, you would ensure that port 27017 TCP
+was open to ONLY the CDR-Stats server on the remote system, uncomment the settings
+by removing the #, and then configure the IP address and db_name to match those in
+the mod_cdr_mongodb configuration as described at
+<a class="reference external" href="http://www.cdr-stats.org/documentation/beginners-guide/howto-installing-on-freeswitch/">http://www.cdr-stats.org/documentation/beginners-guide/howto-installing-on-freeswitch/</a></p>
 </div>
 </div>
 
@@ -228,7 +293,7 @@ these custom applications.</p>
         <li class="right" >
           <a href="configuration-defaults.html" title="Configuration and Defaults"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
           <li><a href="configuration-defaults.html" >Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Overview &mdash; CDR-Stats 2.0.alpha documentation</title>
+    <title>Overview &mdash; CDR-Stats 2.0.beta documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.alpha',
+        VERSION:     '2.0.beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="../index.html" />
+    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="../index.html" />
     <link rel="up" title="User Guide" href="../user-guide.html" />
     <link rel="next" title="How to use CDR-Stats" href="how_to_use_it.html" />
     <link rel="prev" title="User Guide" href="../user-guide.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="../user-guide.html" title="User Guide"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
           <li><a href="../user-guide.html" accesskey="U">User Guide</a> &raquo;</li> 
       </ul>
     </div>  
@@ -59,31 +59,33 @@
 <span id="cdr-stats-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <p>CDR-Stats is a web based application built on the Django framework, which uses MongoDB as the CDR
 data stare, and uses MySQL, SQLite or Postgresql for Django framework management and user control.</p>
-<p>Celery is used to monitor CDR for user defined unusual activity, and react by sending an alert email.</p>
-<p>coming soon..</p>
-<p><strong>CDR Stats Management Features</strong>:</p>
-<div class="highlight-python"><pre>- Multi-tenant design that allows call detail records from multiple switches or PBX systems.
-- Custom alarm triggers can be set to email the administrator for a range of conditions including unusual average call durations, failed calls, and unexpected destinations called.
-- Graphical tools help detect unusual call patterns which may indicate suspicious or fraudulent activity.
-- Import Call Detail Records in CSV format
-- Configure Switches for import
-- Create Customer and assign accountcode
-- Configure alert to detect unsual increase/decrease of Traffic</pre>
-</div>
-<p><strong>CDR Stats Customer Portal Features</strong>:</p>
-<div class="highlight-python"><pre>- Password management
-- Call Details Record
-- Monthly, Daily, Hourly Call reporting
-- Impact Reporting
-- Country Reporting
-- Realtime Reporting of calls in progress
-- View Fraudulent Calls
-- Concurrent Call Statistic
-- Configure Mail Reporting
-- Top 10 destination Traffic
-- Export to CSV
-- Automated daily reporting.</pre>
-</div>
+<p>Celery (<a class="reference external" href="http://celeryproject.org/">http://celeryproject.org/</a>) is an asynchronous task queue/job queue based on distributed message.
+It is used to build our backend system to monitor CDR, detect unusual activity, and react by sending alert email.</p>
+<p><strong>CDR Stats Management Features</strong></p>
+<ul class="simple">
+<li>Multi-tenant design that allows call detail records from multiple switches or PBX systems.</li>
+<li>Custom alarm triggers can be set to email the administrator for a range of conditions including unusual average call durations, failed calls, and unexpected destinations called.</li>
+<li>Graphical tools help detect unusual call patterns which may indicate suspicious or fraudulent activity.</li>
+<li>Import Call Detail Records in CSV format</li>
+<li>Configure Switches for import</li>
+<li>Create Customer and assign accountcode</li>
+<li>Configure alert to detect unsual increase/decrease of Traffic</li>
+</ul>
+<p><strong>CDR Stats Customer Portal Features</strong></p>
+<ul class="simple">
+<li>Password management</li>
+<li>Call Details Record</li>
+<li>Monthly, Daily, Hourly Call reporting</li>
+<li>Impact Reporting</li>
+<li>Country Reporting</li>
+<li>Realtime Reporting of calls in progress</li>
+<li>View Fraudulent Calls</li>
+<li>Concurrent Call Statistic</li>
+<li>Configure Mail Reporting</li>
+<li>Top 10 destination Traffic</li>
+<li>Export to CSV</li>
+<li>Automated daily reporting.</li>
+</ul>
 </div>
 
 
@@ -133,7 +135,7 @@ data stare, and uses MySQL, SQLite or Postgresql for Django framework management
         <li class="right" >
           <a href="../user-guide.html" title="User Guide"
              >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
           <li><a href="../user-guide.html" >User Guide</a> &raquo;</li> 
       </ul>
     </div>

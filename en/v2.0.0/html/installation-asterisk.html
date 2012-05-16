@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; CDR-Stats 2.0.beta documentation</title>
+    <title>Installation with Asterisk &mdash; CDR-Stats 2.0.beta documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" />
-    <link rel="next" title="Overview" href="installation-overview.html" />
-    <link rel="prev" title="MongoDB" href="mongodb-architecture.html" /> 
+    <link rel="up" title="Installation" href="installation.html" />
+    <link rel="next" title="Installation with FreeSWITCH" href="installation-freeswitch.html" />
+    <link rel="prev" title="Overview" href="installation-overview.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,12 +39,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="installation-overview.html" title="Overview"
+          <a href="installation-freeswitch.html" title="Installation with FreeSWITCH"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="mongodb-architecture.html" title="MongoDB"
+          <a href="installation-overview.html" title="Overview"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,35 +55,23 @@
           <div class="body">
             
 
-    <div class="section" id="installation">
-<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation-overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation-overview.html#install-requirements">Install requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation-overview.html#running-cdr-stats">Running CDR-Stats</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation-asterisk.html">Installation with Asterisk</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation-asterisk.html#installation-via-script">Installation via Script</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation-freeswitch.html">Installation with FreeSWITCH</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation-freeswitch.html#installation-via-script">Installation via Script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation-freeswitch.html#installation-on-new-server">Installation on New Server</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="broker/broker-installation.html">Broker Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="broker/broker-installation.html#redis">Redis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="broker/broker-installation.html#rabbitmq">Rabbitmq</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="celery/celery-installation.html">Celery Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="celery/celery-installation.html#celery">Celery</a></li>
-</ul>
-</li>
-</ul>
+    <div class="section" id="installation-with-asterisk">
+<span id="asterisk-installation-overview"></span><h1>Installation with Asterisk<a class="headerlink" href="#installation-with-asterisk" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation-via-script">
+<span id="asterisk-installation-via-script"></span><h2>Installation via Script<a class="headerlink" href="#installation-via-script" title="Permalink to this headline">¶</a></h2>
+<p>Before commencing installation, it is necessary that Asterisk is configured to
+write CDR to a MySQL database. If this has not been done already, there are
+some resources to configure Asterisk to write its CDR records to MySQL at
+<a class="reference external" href="http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-SysAdmin-SECT-1.html">http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-SysAdmin-SECT-1.html</a></p>
+<p>It is wise to take a backup of the CDR database. A note needs to be taken of
+the CDR database name, the CDR table, as well as the MySQL root password as
+this will be required during the installation of CDR-Stats.</p>
+<p>Run the following commands at the console:</p>
+<div class="highlight-python"><pre>$ wget –no-check-certificate https://raw.github.com/Star2Billing/cdr-stats/master/install/install-cdr-stats-asterisk.sh -O install-cdr-stats-asterisk.sh
+$
+$ bash ./install-cdr-stats-asterisk.sh</pre>
+</div>
+<p>The install routine will ask a number of questions, all of which are self explanatory.</p>
 </div>
 </div>
 
@@ -95,11 +85,11 @@
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="mongodb-architecture.html"
-                        title="previous chapter">MongoDB</a></p>
-  <h4>Next topic</h4>
   <p class="topless"><a href="installation-overview.html"
-                        title="next chapter">Overview</a></p>
+                        title="previous chapter">Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="installation-freeswitch.html"
+                        title="next chapter">Installation with FreeSWITCH</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -127,12 +117,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="installation-overview.html" title="Overview"
+          <a href="installation-freeswitch.html" title="Installation with FreeSWITCH"
              >next</a> |</li>
         <li class="right" >
-          <a href="mongodb-architecture.html" title="MongoDB"
+          <a href="installation-overview.html" title="Overview"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
+          <li><a href="installation.html" >Installation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

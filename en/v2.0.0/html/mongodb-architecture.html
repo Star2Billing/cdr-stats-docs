@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>MongoDB &mdash; CDR-Stats 2.0.alpha documentation</title>
+    <title>MongoDB &mdash; CDR-Stats 2.0.beta documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.alpha',
+        VERSION:     '2.0.beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" />
     <link rel="next" title="Installation" href="installation.html" />
     <link rel="prev" title="Getting Started" href="getting-started.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="getting-started.html" title="Getting Started"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -66,10 +66,14 @@
 </tbody>
 </table>
 <p>&#8211;</p>
-<p>MongoDB is a scalable, high-performance, document-oriented schemaless database.
-MongoDB is a Document-oriented datastore, everything in MongoDB is a document.
-Because MongoDB is document-oriented, it is schema-less. There is no notion of a rigid
-table structure composed of columns and types. Because data in mongo is stored as documents, there are no joins.</p>
+<p>MongoDB is a scalable, high-performance, document-oriented schemaless
+database, everything in MongoDB is a document. There is no notion of a rigid table
+structure composed of columns and types. Because data in mongo is stored
+as documents, there are no joins.</p>
+<p>Instead of storing your data in tables and rows as you would with a relational database,
+in MongoDB you store JSON-like documents with dynamic schemas. The goal of MongoDB is
+to bridge the gap between key-value stores (which are fast and scalable) and relational
+databases (which have rich functionality).</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#why-mongodb" id="id4">Why MongoDB</a></li>
@@ -78,33 +82,33 @@ table structure composed of columns and types. Because data in mongo is stored a
 </div>
 <div class="section" id="why-mongodb">
 <span id="id2"></span><h2><a class="toc-backref" href="#id4">Why MongoDB</a><a class="headerlink" href="#why-mongodb" title="Permalink to this headline">¶</a></h2>
-<p>Why did we choose MongoDB and what are the benefits, to answer this questions I think we should enumarete some of the major features of MongoDB.</p>
+<p>Why did we choose MongoDB and what are the benefits?
+To answer this questions I think we should enumerate some of the major features of MongoDB.</p>
 <dl class="docutils">
 <dt><strong>Document-oriented</strong>:</dt>
 <dd><ul class="first last simple">
-<li>Documents (objects) map nicely to programming language data types</li>
+<li>Documents (objects) map well to programming language data types</li>
 <li>Embedded documents and arrays reduce need for joins</li>
-<li>Dynamically-typed (schemaless) for easy schema evolution</li>
+<li>Dynamically-typed (schema-less) for easy schema evolution</li>
 </ul>
 </dd>
 <dt><strong>High performance</strong>:</dt>
 <dd><ul class="first last simple">
-<li>No joins and embedding makes reads and writes fast</li>
+<li>No joins and embedding make reads and writes fast</li>
 <li>Indexes including indexing of keys from embedded documents and arrays</li>
 </ul>
 </dd>
 <dt><strong>High availability</strong>:</dt>
 <dd><ul class="first last simple">
-<li>Replicated servers with automatic master failover</li>
+<li>Replicating servers with automatic master failover</li>
 </ul>
 </dd>
 </dl>
 <p>A more detailed list of everything provided by mongoDB can be found at
 <a class="reference external" href="http://www.mongodb.org/display/DOCS/Introduction">http://www.mongodb.org/display/DOCS/Introduction</a></p>
 <p>As MongoDB is a Document-oriented datastore, it had a huge potentiel to store
-CDRs, Call Details Record vary in times, and from a Telecom Switch to an other
-you will certainly find yourself dealing with different type of data in
-different format. For this reasons a NoSQL is a very good candidate for a CDR warehouse.</p>
+CDR&#8217;s, Call Detail Record formats vary between Telecom Switch types, For these
+reasons a NoSQL database is a very good candidate for a CDR warehouse.</p>
 </div>
 <div class="section" id="datastore-architecture">
 <span id="id3"></span><h2><a class="toc-backref" href="#id5">Datastore Architecture</a><a class="headerlink" href="#datastore-architecture" title="Permalink to this headline">¶</a></h2>
@@ -135,30 +139,30 @@ otherwise sets “field” to the number “value”. This can also be used to
 decrement by using a negative “value”.</p>
 <dl class="docutils">
 <dt><strong>1) cdr_common:</strong></dt>
-<dd>To collect all cdrs from different switches &amp; store into one common format which includes following fields
+<dd>To collect all CDR&#8217;s from different switches &amp; store into one common format which include the following fields
 switch_id,  caller_id_number, caller_id_name, destination_number, duration, billsec, hangup_cause_id, accountcode, direction, uuid, remote_media_ip, start_uepoch, answer_uepoch, end_uepoch, mduration,
 billmsec, read_codec, write_codec, cdr_type, cdr_object_id, country_id, authorized.
 This cdr_common collection used to view cdr records on customer panel</dd>
 <dt><strong>2) cdr_monthly_analytic:</strong></dt>
-<dd>To collect monthly analytics from cdrs which includes following fields
+<dd>To collect monthly analytics from CDR&#8217;s which include following fields
 start_uepoch, destination_number, hangup_cause_id, accountcode, switch_id, calls, duration.
-This cdr_monthly_analytic collection used to view monthly graph on customer panel</dd>
+This cdr_monthly_analytic collection is used to view monthly graph on customer panel</dd>
 <dt><strong>3) cdr_daily_analytic:</strong></dt>
-<dd>To collect daily analytics from cdrs which includes following fields start_uepoch,
+<dd>To collect daily analytics from CDR&#8217;s which include following fields start_uepoch,
 destination_number, hangup_cause_id, accountcode, switch_id, calls, duration.
 This cdr_daily_analytic collection used to view daily graph on customer panel.</dd>
 <dt><strong>4) cdr_hourly_analytic:</strong></dt>
-<dd>To collect hourly analytics from cdrs which includes following fields
+<dd>To collect hourly analytics from CDR&#8217;s which include following fields
 start_uepoch, destination_number, hangup_cause_id, accountcode, switch_id, calls, duration.
-This cdr_hourly_analytic collection used to view hourly graph on customer panel</dd>
+This cdr_hourly_analytic collection used to view the hourly graph on customer panel</dd>
 <dt><strong>5) cdr_country_report:</strong></dt>
-<dd>To collect country vise analytics from cdr which includes following fields
+<dd>To collect country based analytics from the CDR which include following fields
 start_uepoch, country_id, accountcode, switch_id, calls, duration.
-This cdr_country_report collection used to view country graph on customer panel</dd>
+This cdr_country_report collection is used to view country graph on customer panel</dd>
 <dt><strong>6) concurrent_call:</strong></dt>
-<dd>To collect concurrent calls which includes following fields
+<dd>To collect concurrent calls which include following fields
 switch_id, call_date, numbercall, accountcode.
-This concurrent_call collection used to view concurrent call real-time graph on customer panel</dd>
+This concurrent_call collection is used to view concurrent call real-time graph on customer panel</dd>
 </dl>
 <img alt="_images/CDR-Stats-MongoDB.png" src="_images/CDR-Stats-MongoDB.png" style="width: 600px;" />
 </div>
@@ -211,7 +215,7 @@ This concurrent_call collection used to view concurrent call real-time graph on 
         <li class="right" >
           <a href="getting-started.html" title="Getting Started"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

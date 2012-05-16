@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation overview &mdash; CDR-Stats 2.0.alpha documentation</title>
+    <title>Overview &mdash; CDR-Stats 2.0.beta documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.alpha',
+        VERSION:     '2.0.beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.alpha documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" />
     <link rel="up" title="Installation" href="installation.html" />
-    <link rel="next" title="Broker Installation" href="broker/broker-installation.html" />
+    <link rel="next" title="Installation with Asterisk" href="installation-asterisk.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
   <body>
@@ -39,12 +39,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="broker/broker-installation.html" title="Broker Installation"
+          <a href="installation-asterisk.html" title="Installation with Asterisk"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
           <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -55,10 +55,10 @@
           <div class="body">
             
 
-    <div class="section" id="installation-overview">
-<span id="id1"></span><h1>Installation overview<a class="headerlink" href="#installation-overview" title="Permalink to this headline">¶</a></h1>
+    <div class="section" id="overview">
+<span id="installation-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="install-requirements">
-<span id="id2"></span><h2>Install requirements<a class="headerlink" href="#install-requirements" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Install requirements<a class="headerlink" href="#install-requirements" title="Permalink to this headline">¶</a></h2>
 <p>A Requirements file gives you a way to create an environment where you can put
 all optional dependencies which are needed for the Project/Application.</p>
 <p>To get started with CDR-Stats you must have the following installed:</p>
@@ -89,28 +89,19 @@ all optional dependencies which are needed for the Project/Application.</p>
 <p>Use PIP to install all the requirements,:</p>
 <div class="highlight-python"><pre>$ pip install -r requirements.txt</pre>
 </div>
-</div>
-<div class="section" id="installation-script">
-<span id="id3"></span><h2>Installation Script<a class="headerlink" href="#installation-script" title="Permalink to this headline">¶</a></h2>
-<p>You can install CDR-Stats manually or using the shell script provided.</p>
-<p>To install CDR-Stats using the script,:</p>
-<div class="highlight-python"><pre>$ chmod +x install/install-cdrstats.sh
-
-$ ./install/install-cdrstats.sh
-
-$ chmod +x install/install-celery.sh
-
-$ ./install/install-celery.sh</pre>
-</div>
+<p>We advice you to install those requirements into a virtual environement, you can find more information about virtualenv here :
+<a class="reference external" href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a></p>
 </div>
 <div class="section" id="running-cdr-stats">
 <span id="running-cdrstats"></span><h2>Running CDR-Stats<a class="headerlink" href="#running-cdr-stats" title="Permalink to this headline">¶</a></h2>
-<p>Inside CDR-Stats directory you should run:</p>
-<div class="highlight-python"><pre>$ mkdir database
-
-$ python manage.py syncdb
+<p>Inside CDR-Stats directory you should run, the following:</p>
+<div class="highlight-python"><pre>$ python manage.py syncdb --noinput
 
 $ python manage.py collectstatic
+
+$ python manage.py migrate
+
+$ python manage.py createsuperuser
 
 $ python manage.py runserver</pre>
 </div>
@@ -121,6 +112,8 @@ constructed. You can find more information about this in the
 Django documentation.</p>
 <p><tt class="docutils literal"><span class="pre">collectstatic</span></tt> will fetch all necessary media files and put them into
 <tt class="docutils literal"><span class="pre">static</span></tt> folder defined in the settings module.</p>
+<p><tt class="docutils literal"><span class="pre">migrate</span></tt> will applying database migration to update the database schemas of CDR-Stats to its latest version.</p>
+<p><tt class="docutils literal"><span class="pre">createsuperuser</span></tt> will create a super user, to access to the admin section of CDR-Stats.</p>
 <p><tt class="docutils literal"><span class="pre">runserver</span></tt> runs an embedded webserver to test your site.
 By default it will run on <a class="reference external" href="http://localhost:8000">http://localhost:8000</a>. This is configurable and more
 information can be found on <tt class="docutils literal"><span class="pre">runserver</span></tt> in Django documentation.</p>
@@ -140,8 +133,8 @@ information can be found on <tt class="docutils literal"><span class="pre">runse
   <p class="topless"><a href="installation.html"
                         title="previous chapter">Installation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="broker/broker-installation.html"
-                        title="next chapter">Broker Installation</a></p>
+  <p class="topless"><a href="installation-asterisk.html"
+                        title="next chapter">Installation with Asterisk</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -169,12 +162,12 @@ information can be found on <tt class="docutils literal"><span class="pre">runse
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="broker/broker-installation.html" title="Broker Installation"
+          <a href="installation-asterisk.html" title="Installation with Asterisk"
              >next</a> |</li>
         <li class="right" >
           <a href="installation.html" title="Installation"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.alpha documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li>
           <li><a href="installation.html" >Installation</a> &raquo;</li> 
       </ul>
     </div>
