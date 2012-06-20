@@ -9,7 +9,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &mdash; CDR-Stats 2.0.beta documentation</title>
+    <title>Index &mdash; CDR-Stats 2.0.beta2 documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.beta',
+        VERSION:     '2.0.beta2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.beta documentation" href="index.html" /> 
+    <link rel="top" title="CDR-Stats 2.0.beta2 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -72,14 +72,26 @@
   <dt><a href="developer-doc/objects-description.html#cdr_alert.models.AlarmReport">AlarmReport (class in cdr_alert.models)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="developer-doc/objects-description.html#cdr_alert.models.AlertRemovePrefix">AlertRemovePrefix (class in cdr_alert.models)</a>
   </dt>
 
       
-  <dt><a href="api-doc/cdr_daily_resource.html#module-api.resources">api.resources (module)</a>, <a href="api-doc/switch_resource.html#module-api.resources">[1]</a>, <a href="api-doc/hangupcause_resource.html#module-api.resources">[2]</a>, <a href="api-doc/cdr_resource.html#module-api.resources">[3]</a>
+  <dt><a href="api-doc/cdr_resource.html#module-api.cdr_api">api.cdr_api (module)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api-doc/cdr_daily_resource.html#module-api.cdr_daily_api">api.cdr_daily_api (module)</a>
+  </dt>
+
+      
+  <dt><a href="api-doc/hangupcause_resource.html#module-api.hangup_cause_api">api.hangup_cause_api (module)</a>
+  </dt>
+
+      
+  <dt><a href="api-doc/switch_resource.html#module-api.switch_api">api.switch_api (module)</a>
   </dt>
 
   </dl></td>
@@ -136,16 +148,8 @@
   <dt><a href="developer-doc/views.html#cdr.views.cdr_detail">cdr_detail() (in module cdr.views)</a>
   </dt>
 
-      
-  <dt><a href="developer-doc/views.html#cdr.views.cdr_global_report">cdr_global_report() (in module cdr.views)</a>
-  </dt>
-
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="developer-doc/views.html#cdr.views.cdr_graph_by_hour">cdr_graph_by_hour() (in module cdr.views)</a>
-  </dt>
-
       
   <dt><a href="developer-doc/views.html#cdr.views.cdr_overview">cdr_overview() (in module cdr.views)</a>
   </dt>
@@ -155,15 +159,19 @@
   </dt>
 
       
+  <dt><a href="developer-doc/views.html#cdr.views.cdr_report_by_hour">cdr_report_by_hour() (in module cdr.views)</a>
+  </dt>
+
+      
   <dt><a href="developer-doc/views.html#cdr.views.cdr_view">cdr_view() (in module cdr.views)</a>
   </dt>
 
       
-  <dt><a href="api-doc/cdr_daily_resource.html#api.resources.CdrDailyResource">CdrDailyResource (class in api.resources)</a>
+  <dt><a href="api-doc/cdr_daily_resource.html#api.cdr_daily_api.CdrDailyResource">CdrDailyResource (class in api.cdr_daily_api)</a>
   </dt>
 
       
-  <dt><a href="api-doc/cdr_resource.html#api.resources.CdrResource">CdrResource (class in api.resources)</a>
+  <dt><a href="api-doc/cdr_resource.html#api.cdr_api.CdrResource">CdrResource (class in api.cdr_api)</a>
   </dt>
 
       
@@ -187,7 +195,7 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api-doc/hangupcause_resource.html#api.resources.HangupCauseResource">HangupCauseResource (class in api.resources)</a>
+  <dt><a href="api-doc/hangupcause_resource.html#api.hangup_cause_api.HangupCauseResource">HangupCauseResource (class in api.hangup_cause_api)</a>
   </dt>
 
   </dl></td>
@@ -217,7 +225,7 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api-doc/switch_resource.html#api.resources.SwitchResource">SwitchResource (class in api.resources)</a>
+  <dt><a href="api-doc/switch_resource.html#api.switch_api.SwitchResource">SwitchResource (class in api.switch_api)</a>
   </dt>
 
       
@@ -298,7 +306,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
