@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CDR-Stats Views &mdash; CDR-Stats 2.0.beta2 documentation</title>
+    <title>CDR-Stats Views &mdash; CDR-Stats 2.0.0beta3 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.beta2',
+        VERSION:     '2.0.0beta3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.beta2 documentation" href="../index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="../index.html" />
     <link rel="up" title="Developer doc" href="../developer-doc.html" />
     <link rel="next" title="CDR-Stats Tasks" href="tasks.html" />
     <link rel="prev" title="Objects Description" href="objects-description.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="objects-description.html" title="Objects Description"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" accesskey="U">Developer doc</a> &raquo;</li> 
       </ul>
     </div>  
@@ -67,7 +67,7 @@
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/index.html</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/index.html</li>
 <li><tt class="docutils literal"><span class="pre">form</span></tt> - loginForm</li>
 </ul>
 </div></blockquote>
@@ -81,20 +81,7 @@
 <div><dl class="function">
 <dt id="cdr.views.cdr_view">
 <tt class="descclassname">cdr.views.</tt><tt class="descname">cdr_view</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.cdr_view" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of CDRs</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_view.html</li>
-<li><tt class="docutils literal"><span class="pre">form</span></tt> - CdrSearchForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - MG_CDR_COMMON</li>
-<li><tt class="docutils literal"><span class="pre">map_reduce</span></tt> - mapreduce_cdr_view()</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get the call records as well as daily call analytics
-from mongodb collection according to search parameters</div></blockquote>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -109,7 +96,7 @@ from mongodb collection according to search parameters</div></blockquote>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_detail.html</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_detail.html</li>
 </ul>
 </div></blockquote>
 <p><strong>Logic Description</strong>:</p>
@@ -125,19 +112,7 @@ from mongodb collection according to search parameters</div></blockquote>
 <div><dl class="function">
 <dt id="cdr.views.cdr_dashboard">
 <tt class="descclassname">cdr.views.</tt><tt class="descname">cdr_dashboard</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.cdr_dashboard" title="Permalink to this definition">¶</a></dt>
-<dd><p>CDR dashboard for a current day</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_dashboard.html</li>
-<li><tt class="docutils literal"><span class="pre">form</span></tt> - SwitchForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - MG_DAILY_ANALYTIC</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get all call records from mongodb collection for current day
-to create hourly report as well as hangup cause/country analytics</div></blockquote>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -148,29 +123,7 @@ to create hourly report as well as hangup cause/country analytics</div></blockqu
 <div><dl class="function">
 <dt id="cdr.views.cdr_overview">
 <tt class="descclassname">cdr.views.</tt><tt class="descname">cdr_overview</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.cdr_overview" title="Permalink to this definition">¶</a></dt>
-<dd><p>CDR graph by hourly/daily/monthly basis</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul>
-<li><p class="first"><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_overview.html.html</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">form</span></tt> - CdrOverviewForm</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - MG_DAILY_ANALYTIC</p>
-</li>
-<li><dl class="first docutils">
-<dt><tt class="docutils literal"><span class="pre">map_reduce</span></tt> - mapreduce_hourly_overview()</dt>
-<dd><p class="first last">mapreduce_monthly_overview()
-mapreduce_daily_overview()</p>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get all call records from mongodb collection for
-all monthly, daily, hourly analytics</div></blockquote>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -185,9 +138,9 @@ all monthly, daily, hourly analytics</div></blockquote>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_realtime.html</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_realtime.html</li>
 <li><tt class="docutils literal"><span class="pre">form</span></tt> - SwitchForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_collection</span></tt> - MG_CONC_CALL_AGG (map-reduce collection)</li>
+<li><tt class="docutils literal"><span class="pre">mongodb_collection</span></tt> - MONGO_CDRSTATS[&#8216;CONC_CALL_AGG&#8217;] (map-reduce collection)</li>
 </ul>
 </div></blockquote>
 <p><strong>Logic Description</strong>:</p>
@@ -204,20 +157,7 @@ concurrent analytics</div></blockquote>
 <div><dl class="function">
 <dt id="cdr.views.cdr_report_by_hour">
 <tt class="descclassname">cdr.views.</tt><tt class="descname">cdr_report_by_hour</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.cdr_report_by_hour" title="Permalink to this definition">¶</a></dt>
-<dd><p>CDR graph by hourly basis</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_report_by_hour.html</li>
-<li><tt class="docutils literal"><span class="pre">form</span></tt> - CompareCallSearchForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - MG_DAILY_ANALYTIC</li>
-<li><tt class="docutils literal"><span class="pre">map_reduce</span></tt> - mapreduce_cdr_hourly_analytic()</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get all call records from mongodb collection for
-hourly analytics for given date</div></blockquote>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -228,19 +168,7 @@ hourly analytics for given date</div></blockquote>
 <div><dl class="function">
 <dt id="cdr.views.cdr_concurrent_calls">
 <tt class="descclassname">cdr.views.</tt><tt class="descname">cdr_concurrent_calls</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.cdr_concurrent_calls" title="Permalink to this definition">¶</a></dt>
-<dd><p>CDR view of concurrent calls</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/cdr_graph_concurrent_calls.html</li>
-<li><tt class="docutils literal"><span class="pre">form</span></tt> - ConcurrentCallForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - MG_CONC_CALL_AGG (map-reduce collection)</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get all concurrent call records from mongodb map-reduce collection for
-current date</div></blockquote>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -250,21 +178,8 @@ current date</div></blockquote>
 <blockquote>
 <div><dl class="function">
 <dt id="cdr.views.world_map_view">
-<tt class="descclassname">cdr.views.</tt><tt class="descname">world_map_view</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#cdr.views.world_map_view" title="Permalink to this definition">¶</a></dt>
-<dd><p>CDR world report</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - cdr/world_map.html</li>
-<li><tt class="docutils literal"><span class="pre">form</span></tt> - WorldForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_data_set</span></tt> - MG_DAILY_ANALYTIC</li>
-<li><tt class="docutils literal"><span class="pre">map_reduce</span></tt> - mapreduce_world_report()</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get all call records from mongodb collection for all countries
-to create country call</div></blockquote>
+<tt class="descclassname">cdr.views.</tt><tt class="descname">world_map_view</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.world_map_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -280,7 +195,7 @@ to create country call</div></blockquote>
 <blockquote>
 <div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">form</span></tt> - UserChangeDetailForm, UserChangeDetailExtendForm, PasswordChangeForm</li>
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - &#8216;cdr/registration/user_detail_change.html&#8217;</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - &#8216;frontend/registration/user_detail_change.html&#8217;</li>
 </ul>
 </div></blockquote>
 <p><strong>Logic Description</strong>:</p>
@@ -342,7 +257,7 @@ to create country call</div></blockquote>
         <li class="right" >
           <a href="objects-description.html" title="Objects Description"
              >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" >Developer doc</a> &raquo;</li> 
       </ul>
     </div>

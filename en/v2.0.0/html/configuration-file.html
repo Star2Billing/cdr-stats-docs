@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Configuration &mdash; CDR-Stats 2.0.beta2 documentation</title>
+    <title>Configuration &mdash; CDR-Stats 2.0.0beta3 documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.beta2',
+        VERSION:     '2.0.0beta3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.beta2 documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="index.html" />
     <link rel="up" title="Configuration and Defaults" href="configuration-defaults.html" />
     <link rel="next" title="Celery Configuration" href="celery/celery-configuration.html" />
     <link rel="prev" title="Configuration and Defaults" href="configuration-defaults.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="configuration-defaults.html" title="Configuration and Defaults"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
           <li><a href="configuration-defaults.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>  
@@ -56,102 +56,90 @@
             
 
     <div class="section" id="configuration">
-<span id="confifuration"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>Some of the more important parts of the configuration module for the cdr_stats,
-<tt class="docutils literal"><span class="pre">settings.py</span></tt>, are explained below:</p>
+<tt class="docutils literal"><span class="pre">settings.py</span></tt>, are explained below.</p>
+<p><tt class="docutils literal"><span class="pre">APPLICATION_DIR</span></tt> now contains the full path of your project folder and can be used elsewhere
+in the <tt class="docutils literal"><span class="pre">settings.py</span></tt> module so that your project may be moved around the system without you having to
+worry about changing any hard-coded paths.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os.path</span>
 <span class="n">APPLICATION_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">&#39;__file__&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">APPLICATION_DIR</span></tt> now contains the full path of your project folder and can be used elsewhere
-in the <tt class="docutils literal"><span class="pre">settings.py</span></tt> module so that your project may be moved around the system without you having to
-worry about changing any hard-coded paths.</p>
+<p>Turns on debug mode allowing the browser user to see project settings and temporary variables.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
-<p>turns on debug mode allowing the browser user to see project settings and temporary variables.</p>
+<p>Sends all errors from the production server to the admin&#8217;s email address.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="s">&#39;xyz&#39;</span><span class="p">,</span> <span class="s">&#39;xyz@abc.com&#39;</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>sends all errors from the production server to the admin&#8217;s email address.</p>
-<div class="highlight-python"><pre>DATABASES = {
-    'default': {
-        # Add 'postgresql_psycopg2','postgresql','mysql','sqlite3','oracle'
-        'ENGINE': 'django.db.backends.sqlite3',
-        # Or path to database file if using sqlite3.
-        'NAME': os.path.dirname(os.path.abspath(__file__)) + '/database/local.db',
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost.
-                                         # Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default.
-                                         # Not used with sqlite3.
-    }
-}
-
-or
-
-DATABASES = {
-    'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'cdr_stats_psql',
-            'USER': 'postgresuser',
-            'PASSWORD': 'postgrespasswd',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-}
-
-or
-
-DATABASES = {
-    'default': {
-            'ENGINE': 'mysql',
-            'NAME': 'cdr_stats_mysql',
-            'USER': 'mysqluser',
-            'PASSWORD': 'mysqlpasswd',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
-}
-
-#MONGODB
-#=======
-MG_DB_NAME = 'cdr-stats'
-MG_HOST = 'localhost'
-MG_PORT = 27017</pre>
-</div>
-<p>sets up the options required for Django to connect to your database.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+<p>Sets up the options required for Django to connect to your database engine:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c"># Add &#39;postgresql_psycopg2&#39;,&#39;postgresql&#39;,&#39;mysql&#39;,&#39;sqlite3&#39;,&#39;oracle&#39;</span>
+        <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.postgresql_psycopg2&#39;</span><span class="p">,</span>
+        <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;DATABASENAME&#39;</span><span class="p">,</span>
+        <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;DB_USERNAME&#39;</span><span class="p">,</span>
+        <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;DB_PASSWORD&#39;</span><span class="p">,</span>
+        <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;DB_HOSTNAME&#39;</span><span class="p">,</span>
+        <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;DB_PORT&#39;</span><span class="p">,</span>
+        <span class="s">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="c">#Needed on Mysql</span>
+            <span class="c"># &#39;init_command&#39;: &#39;SET storage_engine=INNODB&#39;,</span>
+            <span class="c">#Postgresql Autocommit</span>
+            <span class="s">&#39;autocommit&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>tells Django where to find your media files such as images that the <tt class="docutils literal"><span class="pre">HTML</span>
+<p>Sets up the options to connect to MongoDB Server, this server and Database will be used to store the analytic data.
+You should normally have no need to change those settings, except if your MongoDB server is on a distant machine
+or if you want to have a different name for your collections:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#MONGODB</span>
+<span class="c">#=======</span>
+<span class="n">MONGO_CDRSTATS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;DB_NAME&#39;</span><span class="p">:</span> <span class="s">&#39;cdr-stats&#39;</span><span class="p">,</span>
+    <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+    <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="mi">27017</span><span class="p">,</span>
+    <span class="s">&#39;CDR_COMMON&#39;</span><span class="p">:</span> <span class="s">&#39;cdr_common&#39;</span><span class="p">,</span>
+    <span class="s">&#39;DAILY_ANALYTIC&#39;</span><span class="p">:</span> <span class="s">&#39;daily_analytic&#39;</span><span class="p">,</span>
+    <span class="s">&#39;MONTHLY_ANALYTIC&#39;</span><span class="p">:</span> <span class="s">&#39;monthly_analytic&#39;</span><span class="p">,</span>
+    <span class="s">&#39;CONC_CALL&#39;</span><span class="p">:</span> <span class="s">&#39;concurrent_call&#39;</span><span class="p">,</span>
+    <span class="s">&#39;CONC_CALL_AGG&#39;</span><span class="p">:</span> <span class="s">&#39;concurrent_call_aggregate&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tells Django where to find your media files such as images that the <tt class="docutils literal"><span class="pre">HTML</span>
 <span class="pre">templates</span></tt> might use.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s">&#39;urls&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+
+<span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s">&#39;urls&#39;</span>
 </pre></div>
 </div>
-<p>tells Django to start finding URL matches at in the <tt class="docutils literal"><span class="pre">urls.py</span></tt> module in the <tt class="docutils literal"><span class="pre">cdr_stats</span></tt> project folder.</p>
+<p>Tells Django to start finding URL matches at in the <tt class="docutils literal"><span class="pre">urls.py</span></tt> module in the <tt class="docutils literal"><span class="pre">cdr_stats</span></tt> project folder.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;templates&#39;</span><span class="p">),</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>tells Django where to find your HTML template files.</p>
-<div class="highlight-python"><pre> INSTALLED_APPS = (
-'django.contrib.auth',
-'django.contrib.contenttypes',
-'django.contrib.sessions',
-'django.contrib.sites',
-'django.contrib.admin',
-...
-'cdr',
-'cdr_alert',
-...
+<p>Tells Django where to find your HTML template files:</p>
+<div class="highlight-python"><pre>INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.admin',
+    ...
+    'cdr',
+    'cdr_alert',
+    ...
 )</pre>
 </div>
-<p>tells Django which applications (custom and external) to use in your project.
+<p>Tells Django which applications (custom and external) to use in your project.
 The custom applications, <tt class="docutils literal"><span class="pre">cdr</span></tt> etc. are stored in the project folder along with
 these custom applications.</p>
 <div class="section" id="country-reporting">
-<span id="confifuration-country-reporting"></span><h2>Country Reporting<a class="headerlink" href="#country-reporting" title="Permalink to this headline">¶</a></h2>
+<span id="configuration-country-reporting"></span><h2>Country Reporting<a class="headerlink" href="#country-reporting" title="Permalink to this headline">¶</a></h2>
 <p>CDR-Stats is able to identify the destination country of the call. This is a
 useful fraud prevention measure, so that calls to unexpected destinations
 are immediately apparent. Places that should not be called should be added
@@ -191,43 +179,70 @@ in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.<
 </div>
 </div>
 <div class="section" id="import-configuration-for-asterisk">
-<span id="confifuration-asterisk"></span><h2>Import configuration for Asterisk<a class="headerlink" href="#import-configuration-for-asterisk" title="Permalink to this headline">¶</a></h2>
+<span id="configuration-asterisk"></span><h2>Import configuration for Asterisk<a class="headerlink" href="#import-configuration-for-asterisk" title="Permalink to this headline">¶</a></h2>
 <p>The asterisk settings may be as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ASTERISK_MYSQL</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#list of CDR Backends to import</span>
+<span class="n">CDR_BACKEND</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;127.0.0.1&#39;</span><span class="p">:</span> <span class="p">{</span>
-       <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;asteriskcdrdb&#39;</span><span class="p">,</span>
-       <span class="s">&#39;table_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
-       <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
-       <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="s">&#39;root&#39;</span><span class="p">,</span>
-       <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span><span class="p">,</span>
+        <span class="s">&#39;db_engine&#39;</span><span class="p">:</span> <span class="s">&#39;mysql&#39;</span><span class="p">,</span>
+        <span class="s">&#39;cdr_type&#39;</span><span class="p">:</span> <span class="s">&#39;asterisk&#39;</span><span class="p">,</span>
+        <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;asteriskcdrdb&#39;</span><span class="p">,</span>
+        <span class="s">&#39;table_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
+        <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="s">&#39;port&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+        <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="s">&#39;root&#39;</span><span class="p">,</span>
+        <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;password&#39;</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="c">#&#39;192.168.1.200&#39;: {</span>
+        <span class="c">#&#39;db_engine&#39;: &#39;mysql&#39;,</span>
+        <span class="c">#&#39;cdr_type&#39;: &#39;asterisk&#39;,</span>
         <span class="c">#&#39;db_name&#39;: &#39;asteriskcdrdb&#39;,</span>
         <span class="c">#&#39;table_name&#39;: &#39;cdr&#39;,</span>
         <span class="c">#&#39;host&#39;: &#39;localhost&#39;,</span>
+        <span class="c">#&#39;port&#39;: &#39;&#39;,</span>
         <span class="c">#&#39;user&#39;: &#39;root&#39;,</span>
-        <span class="c">#&#39;password&#39;: &#39;passw0rd&#39;,</span>
+        <span class="c">#&#39;password&#39;: &#39;password&#39;,</span>
     <span class="c">#},</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>To add a new remote Asterisk MySQL CDR store, you would ensure connection to the remote MySQL database, then uncomment the new server settings by removing the # and configuring the credentials to connect to the remote Asterisk CDR store.</p>
 </div>
+<div class="section" id="realtime-configuration-for-asterisk">
+<span id="realtime-configuration-asterisk"></span><h2>Realtime configuration for Asterisk<a class="headerlink" href="#realtime-configuration-for-asterisk" title="Permalink to this headline">¶</a></h2>
+<p>You will find some extra settings, that will allow you to configure CDR-Stats to retrieve Realtime information.</p>
+<p>The settings to configure are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#Asterisk Manager / Used for Realtime and Concurrent calls</span>
+<span class="n">ASTERISK_MANAGER_HOST</span> <span class="o">=</span> <span class="s">&#39;localhost&#39;</span>
+<span class="n">ASTERISK_MANAGER_USER</span> <span class="o">=</span> <span class="s">&#39;cdrstats_user&#39;</span>
+<span class="n">ASTERISK_MANAGER_SECRET</span> <span class="o">=</span> <span class="s">&#39;cdrstats_secret&#39;</span>
+</pre></div>
+</div>
+<p>You will need to configure your Asterisk manager API, add a new user for CDR-Stats, further information about Asterisk Manager can be found here : <a class="reference external" href="http://www.voip-info.org/wiki/view/Asterisk+config+manager.conf">http://www.voip-info.org/wiki/view/Asterisk+config+manager.conf</a></p>
+</div>
 <div class="section" id="import-configuration-for-freeswitch">
-<span id="confifuration-freeswitch"></span><h2>Import configuration for FreeSWITCH<a class="headerlink" href="#import-configuration-for-freeswitch" title="Permalink to this headline">¶</a></h2>
-<p>Freeswitch settings are under the MG_IMPORT section, and should look as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">MG_IMPORT</span> <span class="o">=</span> <span class="p">{</span>
+<span id="configuration-freeswitch"></span><h2>Import configuration for FreeSWITCH<a class="headerlink" href="#import-configuration-for-freeswitch" title="Permalink to this headline">¶</a></h2>
+<p>Freeswitch settings are under the CDR_BACKEND section, and should look as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CDR_BACKEND</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;127.0.0.1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;db_engine&#39;</span><span class="p">:</span> <span class="s">&#39;mongodb&#39;</span><span class="p">,</span>  <span class="c"># mysql, pgsql, mongodb</span>
+        <span class="s">&#39;cdr_type&#39;</span><span class="p">:</span> <span class="s">&#39;freeswitch&#39;</span><span class="p">,</span>  <span class="c"># asterisk or freeswitch</span>
         <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;freeswitch_cdr&#39;</span><span class="p">,</span>
+        <span class="s">&#39;table_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>  <span class="c"># collection if mongodb</span>
         <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
-        <span class="s">&#39;port&#39;</span><span class="p">:</span> <span class="mi">27017</span><span class="p">,</span>
-        <span class="s">&#39;collection&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
+        <span class="s">&#39;port&#39;</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>  <span class="c"># 3306 mysql, 5432 pgsql, 27017 mongodb</span>
+        <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+        <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="c">#&#39;192.168.1.15&#39;: {</span>
-        <span class="c"># &#39;db_name&#39;: &#39;freeswitch_cdr&#39;,</span>
-        <span class="c"># &#39;host&#39;: &#39;192.168.1.15&#39;,</span>
-        <span class="c"># &#39;port&#39;: 27017,</span>
-        <span class="c"># &#39;collection&#39;: &#39;cdr&#39;,</span>
+    <span class="c">#    &#39;db_engine&#39;: &#39;mongodb&#39;,  # mysql, pgsql, mongodb</span>
+    <span class="c">#    &#39;cdr_type&#39;: &#39;freeswitch&#39;,  # asterisk or freeswitch</span>
+    <span class="c">#    &#39;db_name&#39;: &#39;freeswitch_cdr&#39;,</span>
+    <span class="c">#    &#39;table_name&#39;: &#39;cdr&#39;,  # collection if mongodb</span>
+    <span class="c">#    &#39;host&#39;: &#39;localhost&#39;,</span>
+    <span class="c">#    &#39;port&#39;: 3306,  # 3306 mysql, 5432 pgsql, 27017 mongodb</span>
+    <span class="c">#    &#39;user&#39;: &#39;&#39;,</span>
+    <span class="c">#    &#39;password&#39;: &#39;&#39;,</span>
     <span class="c">#},</span>
 <span class="p">}</span>
 </pre></div>
@@ -287,7 +302,7 @@ the mod_cdr_mongodb configuration as described at
         <li class="right" >
           <a href="configuration-defaults.html" title="Configuration and Defaults"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
           <li><a href="configuration-defaults.html" >Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Overview &mdash; CDR-Stats 2.0.beta2 documentation</title>
+    <title>Overview &mdash; CDR-Stats 2.0.0beta3 documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.beta2',
+        VERSION:     '2.0.0beta3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.beta2 documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="index.html" />
     <link rel="up" title="Installation" href="installation.html" />
     <link rel="next" title="Installation with Asterisk" href="installation-asterisk.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
           <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -66,8 +66,8 @@ all optional dependencies which are needed for the Project/Application.</p>
 <li>python &gt;= 2.5 (programming language)</li>
 <li>Apache / http server with WSGI modules</li>
 <li>Django Framework &gt;= 1.4 (Python based Web framework)</li>
-<li>Celery &gt;= 2.2 (Asynchronous task queue/job queue based on distributed message passing)</li>
-<li>django-celery &gt;= 2.2.4 (Celery integration for Django)</li>
+<li>Celery &gt;= 3.0 (Asynchronous task queue/job queue based on distributed message passing)</li>
+<li>django-celery &gt;= 3.0 (Celery integration for Django)</li>
 <li>linaro_django_pagination (Utilities for creating robust pagination tools throughout a django application)</li>
 <li>django-uuidfield &gt;= 0.2 (Provides a UUIDField for your Django models)</li>
 <li>django-reusableapps &gt;= 0.1.1 (Python module to enable Django to load reusable, pluggable and egg-based applications)</li>
@@ -86,11 +86,12 @@ all optional dependencies which are needed for the Project/Application.</p>
 <li>django-countries - List of world countries</li>
 <li>django-socketio - A Django app providing the features required to use websockets with Django via Socket.IO</li>
 </ul>
+<p>We advice you to install those requirements into a virtual environement, a virtual environement will allow you to not mix dependencies of an application with an other installed application on your server. You can find more information about virtualenv here : <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a></p>
+<p>PIP is a tool for installing and managing Python packages, more information about PIP here <a class="reference external" href="http://www.pip-installer.org/en/latest/index.html">http://www.pip-installer.org/en/latest/index.html</a>.
+With PIP you can easily install all the requirements for CDR-Stats.</p>
 <p>Use PIP to install all the requirements,:</p>
-<div class="highlight-python"><pre>$ pip install -r requirements.txt</pre>
+<div class="highlight-python"><pre>$ pip install -r install/requirements/all-requirements.txt</pre>
 </div>
-<p>We advice you to install those requirements into a virtual environement, you can find more information about virtualenv here :
-<a class="reference external" href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a></p>
 </div>
 <div class="section" id="running-cdr-stats">
 <span id="running-cdrstats"></span><h2>Running CDR-Stats<a class="headerlink" href="#running-cdr-stats" title="Permalink to this headline">¶</a></h2>
@@ -167,7 +168,7 @@ information can be found on <tt class="docutils literal"><span class="pre">runse
         <li class="right" >
           <a href="installation.html" title="Installation"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.beta2 documentation</a> &raquo;</li>
+        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
           <li><a href="installation.html" >Installation</a> &raquo;</li> 
       </ul>
     </div>
