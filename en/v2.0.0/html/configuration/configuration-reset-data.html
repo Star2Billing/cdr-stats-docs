@@ -23,7 +23,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
+    <link rel="up" title="Configuration and Defaults" href="../configuration.html" />
+    <link rel="next" title="Celery Configuration" href="../celery/celery-configuration.html" />
+    <link rel="prev" title="Configuration for FreeSWITCH" href="configuration-freeswitch.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +38,14 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="../celery/celery-configuration.html" title="Celery Configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configuration-freeswitch.html" title="Configuration for FreeSWITCH"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,10 +60,13 @@
 <p>Sometimes, some experimentation is required to get the optimum settings for country reporting, to achieve this the data is removed
 from MongoDB on CDR-Stats and re-imported from either the Asterisk MySQL CDR store, or the Freeswitch MongoDB CDR-Store.</p>
 <div class="section" id="stop-celery">
-<h2>1. Stop Celery.<a class="headerlink" href="#stop-celery" title="Permalink to this headline">¶</a></h2>
+<h2>1. Stop Celery<a class="headerlink" href="#stop-celery" title="Permalink to this headline">¶</a></h2>
+<p>Stop CDR-Stats celery:</p>
+<div class="highlight-python"><pre>/etc/init.d/cdr-stats-celeryd stop</pre>
+</div>
 </div>
 <div class="section" id="empty-the-cdr-stats-monodb-data-store">
-<h2>2. Empty the CDR-Stats MonoDB data store.<a class="headerlink" href="#empty-the-cdr-stats-monodb-data-store" title="Permalink to this headline">¶</a></h2>
+<h2>2. Empty the CDR-Stats MonoDB data store<a class="headerlink" href="#empty-the-cdr-stats-monodb-data-store" title="Permalink to this headline">¶</a></h2>
 <p>Type mongo to enter the MongoDB database then apply the following commands:</p>
 <div class="highlight-python"><pre>mongo
 use cdr-stats;
@@ -67,7 +80,7 @@ db.cdr_common.remove({});</pre>
 <p>CTRL-D exits the console.</p>
 </div>
 <div class="section" id="flag-the-cdr-records-for-reimport">
-<h2>3. Flag the CDR records for reimport.<a class="headerlink" href="#flag-the-cdr-records-for-reimport" title="Permalink to this headline">¶</a></h2>
+<h2>3. Flag the CDR records for reimport<a class="headerlink" href="#flag-the-cdr-records-for-reimport" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="loweralpha">
 <li><p class="first">With Asterisk and Mysql.</p>
@@ -96,10 +109,14 @@ db.cdr.update({"import_cdr" : 1}, { $set : {"import_cdr" : 0}}, { multi: true })
 </div></blockquote>
 </div>
 <div class="section" id="start-celery">
-<h2>4. Start Celery.<a class="headerlink" href="#start-celery" title="Permalink to this headline">¶</a></h2>
+<h2>4. Start Celery<a class="headerlink" href="#start-celery" title="Permalink to this headline">¶</a></h2>
+<p>Start CDR-Stats celery:</p>
+<div class="highlight-python"><pre>/etc/init.d/cdr-stats-celeryd start</pre>
+</div>
 </div>
 <div class="section" id="wait-while-the-cdr-are-re-imported">
-<h2>5. Wait while the CDR are re-imported.<a class="headerlink" href="#wait-while-the-cdr-are-re-imported" title="Permalink to this headline">¶</a></h2>
+<h2>5. Wait while the CDR are re-imported<a class="headerlink" href="#wait-while-the-cdr-are-re-imported" title="Permalink to this headline">¶</a></h2>
+<p>Go to the diagnostic page to check if the CDR-Backend are correctly configured and if data are being imported.</p>
 </div>
 </div>
 
@@ -112,6 +129,12 @@ db.cdr.update({"import_cdr" : 1}, { $set : {"import_cdr" : 0}}, { multi: true })
         <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="configuration-freeswitch.html"
+                        title="previous chapter">Configuration for FreeSWITCH</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../celery/celery-configuration.html"
+                        title="next chapter">Celery Configuration</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -138,7 +161,14 @@ db.cdr.update({"import_cdr" : 1}, { $set : {"import_cdr" : 0}}, { multi: true })
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="../celery/celery-configuration.html" title="Celery Configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configuration-freeswitch.html" title="Configuration for FreeSWITCH"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" >Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

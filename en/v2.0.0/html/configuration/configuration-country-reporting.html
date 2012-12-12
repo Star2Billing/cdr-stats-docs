@@ -23,7 +23,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
+    <link rel="up" title="Configuration and Defaults" href="../configuration.html" />
+    <link rel="next" title="Configuration for Asterisk" href="configuration-asterisk.html" />
+    <link rel="prev" title="General Configuration" href="configuration-file.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +38,14 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="configuration-asterisk.html" title="Configuration for Asterisk"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configuration-file.html" title="General Configuration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -60,7 +70,7 @@ prefixed with the international dial code.</p>
 detail records, as well as identifying calls as internal calls. This is done
 in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.</p>
 <div class="section" id="prefix-limits">
-<h2>1. Prefix Limits.<a class="headerlink" href="#prefix-limits" title="Permalink to this headline">¶</a></h2>
+<h2>1. Prefix Limits<a class="headerlink" href="#prefix-limits" title="Permalink to this headline">¶</a></h2>
 <p>PREFIX_LIMIT_MIN &amp; PREFIX_LIMIT_MAX are used to determine how many digits are used to match against the dialcode prefix database, e.g:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">PREFIX_LIMIT_MIN</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">PREFIX_LIMIT_MAX</span> <span class="o">=</span> <span class="mi">5</span>
@@ -68,7 +78,7 @@ in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.<
 </div>
 </div>
 <div class="section" id="phone-number-length">
-<h2>2. Phone Number Length.<a class="headerlink" href="#phone-number-length" title="Permalink to this headline">¶</a></h2>
+<h2>2. Phone Number Length<a class="headerlink" href="#phone-number-length" title="Permalink to this headline">¶</a></h2>
 <p>If a phone number has less significant digits than PN_MIN_DIGITS it will be considered an extension:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">PN_MIN_DIGITS</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">PN_MAX_DIGITS</span> <span class="o">=</span> <span class="mi">9</span>
@@ -77,7 +87,7 @@ in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.<
 <p><em>NB The Number of significant digits does not include national (0) or international dialing codes (00 or 011), or where 9 is pressed for an outside line.</em></p>
 </div>
 <div class="section" id="adding-country-code">
-<h2>3. Adding Country Code.<a class="headerlink" href="#adding-country-code" title="Permalink to this headline">¶</a></h2>
+<h2>3. Adding Country Code<a class="headerlink" href="#adding-country-code" title="Permalink to this headline">¶</a></h2>
 <p>If a phone number has more digits than PN_DIGITS_MIN but less than PN_DIGITS_MAX then the phone number will be considered as local or national call and the LOCAL_DIALCODE will be added:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">LOCAL_DIALCODE</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
@@ -85,7 +95,7 @@ in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.<
 <p>Set the dialcode of your country e.g. 44 for UK, 1 for US</p>
 </div>
 <div class="section" id="prefixes-to-ignore">
-<h2>4. Prefixes to Ignore.<a class="headerlink" href="#prefixes-to-ignore" title="Permalink to this headline">¶</a></h2>
+<h2>4. Prefixes to Ignore<a class="headerlink" href="#prefixes-to-ignore" title="Permalink to this headline">¶</a></h2>
 <p>List of prefixes to ignore, these prefixes are removed from the phone number prior to analysis. In cases where
 customers dial 9 for an outside line, 9, 90 or 900 may need to be removed as well to ensure accurate reporting:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">PREFIX_TO_IGNORE</span> <span class="o">=</span> <span class="s">&quot;+,0,00,000,0000,00000,011,55555,99999&quot;</span>
@@ -110,6 +120,12 @@ customers dial 9 for an outside line, 9, 90 or 900 may need to be removed as wel
         <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="configuration-file.html"
+                        title="previous chapter">General Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="configuration-asterisk.html"
+                        title="next chapter">Configuration for Asterisk</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -136,7 +152,14 @@ customers dial 9 for an outside line, 9, 90 or 900 may need to be removed as wel
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="configuration-asterisk.html" title="Configuration for Asterisk"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configuration-file.html" title="General Configuration"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" >Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

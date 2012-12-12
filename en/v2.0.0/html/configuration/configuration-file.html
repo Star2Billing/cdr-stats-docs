@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Configuration &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    <title>General Configuration &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -23,7 +23,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
+    <link rel="up" title="Configuration and Defaults" href="../configuration.html" />
+    <link rel="next" title="Country Reporting" href="configuration-country-reporting.html" />
+    <link rel="prev" title="Configuration and Defaults" href="../configuration.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +38,14 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="configuration-country-reporting.html" title="Country Reporting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../configuration.html" title="Configuration and Defaults"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -45,8 +55,8 @@
           <div class="body">
             
 
-    <div class="section" id="configuration">
-<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+    <div class="section" id="general-configuration">
+<span id="id1"></span><h1>General Configuration<a class="headerlink" href="#general-configuration" title="Permalink to this headline">¶</a></h1>
 <p>Some of the more important parts of the configuration module for the cdr_stats,
 <tt class="docutils literal"><span class="pre">settings_local.py</span></tt>, are explained below.</p>
 <p><tt class="docutils literal"><span class="pre">APPLICATION_DIR</span></tt> now contains the full path of the project folder and can be used elsewhere
@@ -128,8 +138,8 @@ different names are required for the collections:</p>
 <p>Tells Django which applications (custom and external) to use in the project.
 The custom applications, <tt class="docutils literal"><span class="pre">cdr</span></tt> etc. are stored in the project folder along with
 these custom applications.</p>
-<div class="section" id="configuring-email">
-<h2>Configuring Email<a class="headerlink" href="#configuring-email" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mail-server">
+<h2>Mail server<a class="headerlink" href="#mail-server" title="Permalink to this headline">¶</a></h2>
 <p>To configure the SMTP client so that reports and alerts are sent via email, edit
 /usr/share/cdr-stats/settings_local.py, and identify the email section:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#EMAIL BACKEND</span>
@@ -163,6 +173,12 @@ $ python manage.py send_daily_report</pre>
         <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../configuration.html"
+                        title="previous chapter">Configuration and Defaults</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="configuration-country-reporting.html"
+                        title="next chapter">Country Reporting</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -189,7 +205,14 @@ $ python manage.py send_daily_report</pre>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="configuration-country-reporting.html" title="Country Reporting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../configuration.html" title="Configuration and Defaults"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" >Configuration and Defaults</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
