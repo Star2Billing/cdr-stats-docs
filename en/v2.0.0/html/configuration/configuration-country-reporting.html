@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Country Reporting &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0RC1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+
+    <div class="section" id="country-reporting">
+<span id="configuration-country-reporting"></span><h1>Country Reporting<a class="headerlink" href="#country-reporting" title="Permalink to this headline">¶</a></h1>
+<p>CDR-Stats is able to identify the destination country of the call. This is a
+useful fraud prevention measure, so that calls to unexpected destinations
+are immediately apparent. Places that should not be called should be added
+in the Blacklist in the admin section so that these destinations are
+highlighted in the call data records.</p>
+<p>However, in order to get accurate reporting, the call detail records have to
+be in international format, e.g. in the USA, this means 11 digit numbers,
+beginning with a 1, and for other countries, the numbers called should be
+prefixed with the international dial code.</p>
+<p>There is a facility for manipulating the dialled digits reported in the call
+detail records, as well as identifying calls as internal calls. This is done
+in the &#8220;general&#8221; section of /usr/share/cdr-stats/settings_local.py.</p>
+<div class="section" id="prefix-limits">
+<h2>1. Prefix Limits.<a class="headerlink" href="#prefix-limits" title="Permalink to this headline">¶</a></h2>
+<p>PREFIX_LIMIT_MIN &amp; PREFIX_LIMIT_MAX are used to determine how many digits are used to match against the dialcode prefix database, e.g:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PREFIX_LIMIT_MIN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">PREFIX_LIMIT_MAX</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="phone-number-length">
+<h2>2. Phone Number Length.<a class="headerlink" href="#phone-number-length" title="Permalink to this headline">¶</a></h2>
+<p>If a phone number has less significant digits than PN_MIN_DIGITS it will be considered an extension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PN_MIN_DIGITS</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">PN_MAX_DIGITS</span> <span class="o">=</span> <span class="mi">9</span>
+</pre></div>
+</div>
+<p><em>NB The Number of significant digits does not include national (0) or international dialing codes (00 or 011), or where 9 is pressed for an outside line.</em></p>
+</div>
+<div class="section" id="adding-country-code">
+<h2>3. Adding Country Code.<a class="headerlink" href="#adding-country-code" title="Permalink to this headline">¶</a></h2>
+<p>If a phone number has more digits than PN_DIGITS_MIN but less than PN_DIGITS_MAX then the phone number will be considered as local or national call and the LOCAL_DIALCODE will be added:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">LOCAL_DIALCODE</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Set the dialcode of your country e.g. 44 for UK, 1 for US</p>
+</div>
+<div class="section" id="prefixes-to-ignore">
+<h2>4. Prefixes to Ignore.<a class="headerlink" href="#prefixes-to-ignore" title="Permalink to this headline">¶</a></h2>
+<p>List of prefixes to ignore, these prefixes are removed from the phone number prior to analysis. In cases where
+customers dial 9 for an outside line, 9, 90 or 900 may need to be removed as well to ensure accurate reporting:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PREFIX_TO_IGNORE</span> <span class="o">=</span> <span class="s">&quot;+,0,00,000,0000,00000,011,55555,99999&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>So for the USA, to cope with 10 or 11 digit dialling, PN_MAX_DIGITS would be set to 10, and LOCAL_DIALCODE set to 1. Thus 10 digit numbers would have a 1 added, but 11 digit numbers are left untouched.</p>
+<p>In the UK, the number of significant digits is either 9 or 10 after the &#8220;0&#8221; trunk code. So to ensure that all UK numbers had 44 prefixed to them and the single leading 0 removed, the prefixes to ignore would include 0, the PN_MAX_DIGITS would be set to 10, and the LOCAL_DIALCODE would be 44.</p>
+<p>In Spain, where there is no &#8220;0&#8221; trunk code, and the length of all numbers is 9, then the PN_MAX_DIGITS  would be set to 9, and the LOCAL_DIALCODE set to 34.</p>
+<p>NB: After changing this file, then both celery and apache should be restarted.</p>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Objects Description &mdash; CDR-Stats 2.0.0beta3 documentation</title>
+    <title>Objects Description &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.0beta3',
+        VERSION:     '2.0.0RC1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="../index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
     <link rel="up" title="Developer doc" href="../developer-doc.html" />
     <link rel="next" title="CDR-Stats Views" href="views.html" />
     <link rel="prev" title="Coding Style &amp; Structure" href="coding-structure.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="coding-structure.html" title="Coding Style &amp; Structure"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" accesskey="U">Developer doc</a> &raquo;</li> 
       </ul>
     </div>  
@@ -139,6 +139,7 @@
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">user</span></tt> -</li>
 <li><tt class="docutils literal"><span class="pre">name</span></tt> - Alarm name</li>
 <li><tt class="docutils literal"><span class="pre">period</span></tt> - Day | Week | Month</li>
 <li><tt class="docutils literal"><span class="pre">type</span></tt> - ALOC (average length of call) ; ASR (answer seize ratio)</li>
@@ -159,9 +160,9 @@
 <dt id="cdr_alert.models.AlertRemovePrefix">
 <em class="property">class </em><tt class="descclassname">cdr_alert.models.</tt><tt class="descname">AlertRemovePrefix</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.models.AlertRemovePrefix" title="Permalink to this definition">¶</a></dt>
 <dd><p>This defines the Alert Remove Prefix
-Here you can define the list of prefixes that need to be removed from the
-dialed digits, imagine all your phone numbers are in the format 5559004432
-You will need to remove the prefix 555 to analyze the phone numbers</p>
+Define the list of prefixes that need to be removed from the dialed digits, 
+assuming the phone numbers are in the format 5559004432, with the signifcant digits
+9004432, the prefix 555 needs to be removed to analyse the phone numbers.</p>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -200,6 +201,7 @@ You will need to remove the prefix 555 to analyze the phone numbers</p>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">user</span></tt> -</li>
 <li><tt class="docutils literal"><span class="pre">phonenumber_prefix</span></tt> -</li>
 <li><tt class="docutils literal"><span class="pre">country</span></tt> -</li>
 </ul>
@@ -217,6 +219,7 @@ You will need to remove the prefix 555 to analyze the phone numbers</p>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">user</span></tt> -</li>
 <li><tt class="docutils literal"><span class="pre">phonenumber_prefix</span></tt> -</li>
 <li><tt class="docutils literal"><span class="pre">country</span></tt> -</li>
 </ul>
@@ -280,12 +283,12 @@ You will need to remove the prefix 555 to analyze the phone numbers</p>
         <li class="right" >
           <a href="coding-structure.html" title="Coding Style &amp; Structure"
              >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" >Developer doc</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
     </div>
   </body>
 </html>

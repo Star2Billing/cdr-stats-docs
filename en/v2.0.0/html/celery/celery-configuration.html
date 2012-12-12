@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Celery Configuration &mdash; CDR-Stats 2.0.0beta3 documentation</title>
+    <title>Celery Configuration &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.0beta3',
+        VERSION:     '2.0.0RC1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,10 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="../index.html" />
-    <link rel="up" title="Configuration and Defaults" href="../configuration-defaults.html" />
-    <link rel="next" title="Developer doc" href="../developer-doc.html" />
-    <link rel="prev" title="Configuration" href="../configuration-file.html" /> 
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,14 +35,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="../developer-doc.html" title="Developer doc"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../configuration-file.html" title="Configuration"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
-          <li><a href="../configuration-defaults.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -93,7 +83,6 @@
 </div>
 <div class="section" id="launch-celery-celerybeat-in-debug-mode">
 <h2>Launch celery/celerybeat in debug mode<a class="headerlink" href="#launch-celery-celerybeat-in-debug-mode" title="Permalink to this headline">¶</a></h2>
-<p>If you don&#8217;t want to run celeryd and celerybeat as a daemon then</p>
 <p>To run celeryd</p>
 <div class="highlight-python"><pre>$ python manage.py celeryd -E -l debug</pre>
 </div>
@@ -106,8 +95,7 @@
 </div>
 <div class="section" id="running-celeryd-celerybeat-as-a-daemon-debian-ubuntu">
 <h2>Running celeryd/celerybeat as a daemon (Debian/Ubuntu)<a class="headerlink" href="#running-celeryd-celerybeat-as-a-daemon-debian-ubuntu" title="Permalink to this headline">¶</a></h2>
-<p>To configure celeryd you will need to tell it where to change directory
-to, when it starts in order to find your celeryconfig.</p>
+<p>To configure celeryd as a daemon, it is necessary to configure the location of celeryconfig</p>
 <div class="highlight-python"><pre>$ cd install/celery-init/etc/default/</pre>
 </div>
 <ol class="arabic">
@@ -172,7 +160,7 @@ $ /etc/init.d/celerybeat start or stop</pre>
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
-<p>If you can&#8217;t get the celeryd as a daemon to work, you should try running them in verbose mode:</p>
+<p>If celeryd will not start as a daemon, try running it in verbose mode:</p>
 <div class="highlight-python"><pre>$ sh -x /etc/init.d/celeryd start
 
 $ sh -x /etc/init.d/celerybeat start</pre>
@@ -189,12 +177,6 @@ $ sh -x /etc/init.d/celerybeat start</pre>
         <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../configuration-file.html"
-                        title="previous chapter">Configuration</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../developer-doc.html"
-                        title="next chapter">Developer doc</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -221,18 +203,11 @@ $ sh -x /etc/init.d/celerybeat start</pre>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="../developer-doc.html" title="Developer doc"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../configuration-file.html" title="Configuration"
-             >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
-          <li><a href="../configuration-defaults.html" >Configuration and Defaults</a> &raquo;</li> 
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Developer doc &mdash; CDR-Stats 2.0.0beta3 documentation</title>
+    <title>Developer doc &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.0beta3',
+        VERSION:     '2.0.0RC1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="index.html" />
     <link rel="next" title="Prerequisites" href="developer-doc/pre-requisite.html" />
-    <link rel="prev" title="Celery Configuration" href="celery/celery-configuration.html" /> 
+    <link rel="prev" title="MongoDB" href="mongodb-architecture.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,9 +41,9 @@
           <a href="developer-doc/pre-requisite.html" title="Prerequisites"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="celery/celery-configuration.html" title="Celery Configuration"
+          <a href="mongodb-architecture.html" title="MongoDB"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -87,6 +87,11 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#cdr-concurrent-calls"><tt class="docutils literal"><span class="pre">cdr_concurrent_calls</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#world-map-view"><tt class="docutils literal"><span class="pre">world_map_view</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#customer-detail-change"><tt class="docutils literal"><span class="pre">customer_detail_change</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#alarm-list"><tt class="docutils literal"><span class="pre">alarm_list</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#alarm-add"><tt class="docutils literal"><span class="pre">alarm_add</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#alarm-del"><tt class="docutils literal"><span class="pre">alarm_del</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#alarm-change"><tt class="docutils literal"><span class="pre">alarm_change</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/views.html#alert-report"><tt class="docutils literal"><span class="pre">alert_report</span></tt></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="developer-doc/tasks.html">CDR-Stats Tasks</a><ul>
@@ -98,7 +103,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="developer-doc/testing.html">Test Case Descriptions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="developer-doc/testing.html#requirement">Requirement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-doc/testing.html#how-to-run-test">How to run test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-doc/testing.html#how-to-run-tests">How to Run Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -115,8 +120,8 @@
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="celery/celery-configuration.html"
-                        title="previous chapter">Celery Configuration</a></p>
+  <p class="topless"><a href="mongodb-architecture.html"
+                        title="previous chapter">MongoDB</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="developer-doc/pre-requisite.html"
                         title="next chapter">Prerequisites</a></p>
@@ -150,13 +155,13 @@
           <a href="developer-doc/pre-requisite.html" title="Prerequisites"
              >next</a> |</li>
         <li class="right" >
-          <a href="celery/celery-configuration.html" title="Celery Configuration"
+          <a href="mongodb-architecture.html" title="MongoDB"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
     </div>
   </body>
 </html>

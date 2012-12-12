@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CDR-Stats Views &mdash; CDR-Stats 2.0.0beta3 documentation</title>
+    <title>CDR-Stats Views &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.0beta3',
+        VERSION:     '2.0.0RC1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="../index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
     <link rel="up" title="Developer doc" href="../developer-doc.html" />
     <link rel="next" title="CDR-Stats Tasks" href="tasks.html" />
     <link rel="prev" title="Objects Description" href="objects-description.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="objects-description.html" title="Objects Description"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" accesskey="U">Developer doc</a> &raquo;</li> 
       </ul>
     </div>  
@@ -134,19 +134,7 @@
 <div><dl class="function">
 <dt id="cdr.views.cdr_realtime">
 <tt class="descclassname">cdr.views.</tt><tt class="descname">cdr_realtime</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr.views.cdr_realtime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Call realtime view</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_realtime.html</li>
-<li><tt class="docutils literal"><span class="pre">form</span></tt> - SwitchForm</li>
-<li><tt class="docutils literal"><span class="pre">mongodb_collection</span></tt> - MONGO_CDRSTATS[&#8216;CONC_CALL_AGG&#8217;] (map-reduce collection)</li>
-</ul>
-</div></blockquote>
-<p><strong>Logic Description</strong>:</p>
-<blockquote>
-<div>get all call records from mongodb collection for
-concurrent analytics</div></blockquote>
+<dd><p>Caller.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -201,7 +189,123 @@ concurrent analytics</div></blockquote>
 <p><strong>Logic Description</strong>:</p>
 <blockquote>
 <div><ul class="simple">
-<li>User is able to change his/her detail.</li>
+<li>User is able to change their details.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
+<span class="target" id="module-cdr_alert.views"></span></div>
+<div class="section" id="alarm-list">
+<span id="id8"></span><h2><a class="reference internal" href="#cdr_alert.views.alarm_list" title="cdr_alert.views.alarm_list"><tt class="xref py py-class docutils literal"><span class="pre">alarm_list</span></tt></a><a class="headerlink" href="#alarm-list" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="cdr_alert.views.alarm_list">
+<tt class="descclassname">cdr_alert.views.</tt><tt class="descname">alarm_list</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.views.alarm_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alarm list for the logged in user</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_alert/alert_list.html</li>
+</ul>
+</div></blockquote>
+<p><strong>Logic Description</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>List all alarms which belong to the logged in user.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="alarm-add">
+<span id="id9"></span><h2><a class="reference internal" href="#cdr_alert.views.alarm_add" title="cdr_alert.views.alarm_add"><tt class="xref py py-class docutils literal"><span class="pre">alarm_add</span></tt></a><a class="headerlink" href="#alarm-add" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="cdr_alert.views.alarm_add">
+<tt class="descclassname">cdr_alert.views.</tt><tt class="descname">alarm_add</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.views.alarm_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new Alarm for the logged in user</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">form</span></tt> - AlarmForm</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_alert/alarm/change.html</li>
+</ul>
+</div></blockquote>
+<p><strong>Logic Description</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add a new Alarm which will belong to the logged in user
+via the AlarmForm &amp; get redirected to the Alarm list</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="alarm-del">
+<span id="id10"></span><h2><a class="reference internal" href="#cdr_alert.views.alarm_del" title="cdr_alert.views.alarm_del"><tt class="xref py py-class docutils literal"><span class="pre">alarm_del</span></tt></a><a class="headerlink" href="#alarm-del" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="cdr_alert.views.alarm_del">
+<tt class="descclassname">cdr_alert.views.</tt><tt class="descname">alarm_del</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.views.alarm_del" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a alarm for a logged in user</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">object_id</span></tt> - Selected alarm object</li>
+<li><tt class="docutils literal"><span class="pre">object_list</span></tt> - Selected alarm objects</li>
+</ul>
+</div></blockquote>
+<p><strong>Logic Description</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Delete selected the alarm from the alarm list</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="alarm-change">
+<span id="id11"></span><h2><a class="reference internal" href="#cdr_alert.views.alarm_change" title="cdr_alert.views.alarm_change"><tt class="xref py py-class docutils literal"><span class="pre">alarm_change</span></tt></a><a class="headerlink" href="#alarm-change" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="cdr_alert.views.alarm_change">
+<tt class="descclassname">cdr_alert.views.</tt><tt class="descname">alarm_change</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.views.alarm_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update/Delete Alarm for the logged in user</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">object_id</span></tt> - Selected alarm object</li>
+<li><tt class="docutils literal"><span class="pre">form</span></tt> - AlarmForm</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_alert/alarm/change.html</li>
+</ul>
+</div></blockquote>
+<p><strong>Logic Description</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Update/delete selected alarm from the alarm list
+via alarmForm &amp; get redirected to alarm list</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="alert-report">
+<span id="id12"></span><h2><a class="reference internal" href="#cdr_alert.views.alert_report" title="cdr_alert.views.alert_report"><tt class="xref py py-class docutils literal"><span class="pre">alert_report</span></tt></a><a class="headerlink" href="#alert-report" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="cdr_alert.views.alert_report">
+<tt class="descclassname">cdr_alert.views.</tt><tt class="descname">alert_report</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cdr_alert.views.alert_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get alarm report for logged in user</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">form</span></tt> - AlarmReportForm</li>
+<li><tt class="docutils literal"><span class="pre">template</span></tt> - frontend/cdr_alert/alarm_report.html</li>
 </ul>
 </div></blockquote>
 </dd></dl>
@@ -257,12 +361,12 @@ concurrent analytics</div></blockquote>
         <li class="right" >
           <a href="objects-description.html" title="Objects Description"
              >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" >Developer doc</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
     </div>
   </body>
 </html>

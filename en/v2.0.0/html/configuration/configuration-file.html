@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0RC1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+
+    <div class="section" id="configuration">
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>Some of the more important parts of the configuration module for the cdr_stats,
+<tt class="docutils literal"><span class="pre">settings_local.py</span></tt>, are explained below.</p>
+<p><tt class="docutils literal"><span class="pre">APPLICATION_DIR</span></tt> now contains the full path of the project folder and can be used elsewhere
+in the <tt class="docutils literal"><span class="pre">settings.py</span></tt> module so that the project may be moved around the system without having to
+worry about changing any hard-coded paths.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="n">APPLICATION_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">&#39;__file__&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Turns on debug mode allowing the browser user to see project settings and temporary variables.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Sends all errors from the production server to the admin&#8217;s email address.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="s">&#39;xyz&#39;</span><span class="p">,</span> <span class="s">&#39;xyz@abc.com&#39;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets up the options required for Django to connect to your database engine:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c"># Add &#39;postgresql_psycopg2&#39;,&#39;postgresql&#39;,&#39;mysql&#39;,&#39;sqlite3&#39;,&#39;oracle&#39;</span>
+        <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.postgresql_psycopg2&#39;</span><span class="p">,</span>
+        <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;DATABASENAME&#39;</span><span class="p">,</span>
+        <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;DB_USERNAME&#39;</span><span class="p">,</span>
+        <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;DB_PASSWORD&#39;</span><span class="p">,</span>
+        <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;DB_HOSTNAME&#39;</span><span class="p">,</span>
+        <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;DB_PORT&#39;</span><span class="p">,</span>
+        <span class="s">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="c">#Needed on Mysql</span>
+            <span class="c"># &#39;init_command&#39;: &#39;SET storage_engine=INNODB&#39;,</span>
+            <span class="c">#Postgresql Autocommit</span>
+            <span class="s">&#39;autocommit&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sets up the options to connect to MongoDB Server, this server and database will be used to store the analytic data.
+There is usually no need to change these settings, unless if your MongoDB server is on a remote server, or if
+different names are required for the collections:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#MONGODB</span>
+<span class="c">#=======</span>
+<span class="n">MONGO_CDRSTATS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;DB_NAME&#39;</span><span class="p">:</span> <span class="s">&#39;cdr-stats&#39;</span><span class="p">,</span>
+    <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+    <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="mi">27017</span><span class="p">,</span>
+    <span class="s">&#39;CDR_COMMON&#39;</span><span class="p">:</span> <span class="s">&#39;cdr_common&#39;</span><span class="p">,</span>
+    <span class="s">&#39;DAILY_ANALYTIC&#39;</span><span class="p">:</span> <span class="s">&#39;daily_analytic&#39;</span><span class="p">,</span>
+    <span class="s">&#39;MONTHLY_ANALYTIC&#39;</span><span class="p">:</span> <span class="s">&#39;monthly_analytic&#39;</span><span class="p">,</span>
+    <span class="s">&#39;CONC_CALL&#39;</span><span class="p">:</span> <span class="s">&#39;concurrent_call&#39;</span><span class="p">,</span>
+    <span class="s">&#39;CONC_CALL_AGG&#39;</span><span class="p">:</span> <span class="s">&#39;concurrent_call_aggregate&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tells Django where to find your media files such as images that the <tt class="docutils literal"><span class="pre">HTML</span>
+<span class="pre">templates</span></tt> might use.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+
+<span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s">&#39;urls&#39;</span>
+</pre></div>
+</div>
+<p>Tells Django to start finding URL matches at in the <tt class="docutils literal"><span class="pre">urls.py</span></tt> module in the <tt class="docutils literal"><span class="pre">cdr_stats</span></tt> project folder.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">APPLICATION_DIR</span><span class="p">,</span> <span class="s">&#39;templates&#39;</span><span class="p">),</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Tells Django where to find the HTML template files:</p>
+<div class="highlight-python"><pre>INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.admin',
+    ...
+    'cdr',
+    'cdr_alert',
+    ...
+)</pre>
+</div>
+<p>Tells Django which applications (custom and external) to use in the project.
+The custom applications, <tt class="docutils literal"><span class="pre">cdr</span></tt> etc. are stored in the project folder along with
+these custom applications.</p>
+<div class="section" id="configuring-email">
+<h2>Configuring Email<a class="headerlink" href="#configuring-email" title="Permalink to this headline">¶</a></h2>
+<p>To configure the SMTP client so that reports and alerts are sent via email, edit
+/usr/share/cdr-stats/settings_local.py, and identify the email section:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#EMAIL BACKEND</span>
+<span class="c">#=============</span>
+<span class="c"># Email configuration</span>
+<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="s">&#39;CDR-Stats &lt;cdr-...@localhost.com&gt;&#39;</span>
+<span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s">&#39;django.core.mail.backends.smtp.EmailBackend&#39;</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="s">&#39;smtp.gmail.com&#39;</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="s">&#39;user...@gmail.com&#39;</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="s">&#39;password&#39;</span>
+<span class="n">EMAIL_SUBJECT_PREFIX</span> <span class="o">=</span> <span class="s">&#39;[CDR-Stats] &#39;</span>
+</pre></div>
+</div>
+<p>Fill in the details to match your SMTP server. The above example is for Gmail. When done, restart Celery and Apache.</p>
+<p>To test that the email is working, from the command line type:</p>
+<div class="highlight-python"><pre>$ cd /usr/src/cdr-stats/
+$ workon cdr-stats
+$ python manage.py send_daily_report</pre>
+</div>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

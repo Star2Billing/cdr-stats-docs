@@ -6,46 +6,46 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Overview &mdash; CDR-Stats 2.0.0beta3 documentation</title>
+    <title>Overview &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
-    <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.0.0beta3',
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0RC1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="index.html" />
-    <link rel="up" title="Installation" href="installation.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
+    <link rel="up" title="Installation" href="../installation.html" />
     <link rel="next" title="Installation with Asterisk" href="installation-asterisk.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="prev" title="Installation" href="../installation.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="installation-asterisk.html" title="Installation with Asterisk"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="../installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
-          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../installation.html" accesskey="U">Installation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -59,9 +59,9 @@
 <span id="installation-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="install-requirements">
 <span id="id1"></span><h2>Install requirements<a class="headerlink" href="#install-requirements" title="Permalink to this headline">¶</a></h2>
-<p>A Requirements file gives you a way to create an environment where you can put
-all optional dependencies which are needed for the Project/Application.</p>
-<p>To get started with CDR-Stats you must have the following installed:</p>
+<p>A Requirements file provides a way to create an environment where all
+the optional dependencies needed for the Project/Application are installed.</p>
+<p>To get started with CDR-Stats the following must be installed:</p>
 <ul class="simple">
 <li>python &gt;= 2.5 (programming language)</li>
 <li>Apache / http server with WSGI modules</li>
@@ -81,15 +81,14 @@ all optional dependencies which are needed for the Project/Application.</p>
 <li>wsgiref &gt;= 0.1.2 (Validation support for WSGI )</li>
 <li>django-tastypie (Creating delicious APIs for Django)</li>
 <li>django-notification &gt;= 0.1.3 (User notification management for the Django web framework)</li>
-<li>switch2bill-common - Common libs reused in different project</li>
+<li>switch2bill-common - Common libs reused in different projects</li>
 <li>django-country-dialcode - Django reusable application to manage Dial code of Countries</li>
 <li>django-countries - List of world countries</li>
 <li>django-socketio - A Django app providing the features required to use websockets with Django via Socket.IO</li>
 </ul>
-<p>We advice you to install those requirements into a virtual environement, a virtual environement will allow you to not mix dependencies of an application with an other installed application on your server. You can find more information about virtualenv here : <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a></p>
-<p>PIP is a tool for installing and managing Python packages, more information about PIP here <a class="reference external" href="http://www.pip-installer.org/en/latest/index.html">http://www.pip-installer.org/en/latest/index.html</a>.
-With PIP you can easily install all the requirements for CDR-Stats.</p>
-<p>Use PIP to install all the requirements,:</p>
+<p>The requirements are installed into a virtual environement so that the dependencies of the application do not interfere with other applications on the server. More information can be found about virtualenv at : <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a></p>
+<p>PIP is a tool for installing and managing Python packages, more information about PIP t : <a class="reference external" href="http://www.pip-installer.org/en/latest/index.html">http://www.pip-installer.org/en/latest/index.html</a>.</p>
+<p>With PIP you can easily install all the requirements:</p>
 <div class="highlight-python"><pre>$ pip install -r install/requirements/all-requirements.txt</pre>
 </div>
 </div>
@@ -107,17 +106,16 @@ $ python manage.py createsuperuser
 $ python manage.py runserver</pre>
 </div>
 <p><tt class="docutils literal"><span class="pre">syncdb</span></tt> will create a database named test.db in <tt class="docutils literal"><span class="pre">database</span></tt> folder of the
-CDR-Stats directory. We have configured CDR-Stats to do this, but you
-can change this simply by modifying settings.py where DATABASES dictionary is
-constructed. You can find more information about this in the
-Django documentation.</p>
+CDR-Stats directory. CDR-Stats is configured to do this, but can be changed
+by modifying settings.py where the DATABASES dictionary is constructed. there
+is  more information about this in the Django documentation.</p>
 <p><tt class="docutils literal"><span class="pre">collectstatic</span></tt> will fetch all necessary media files and put them into
 <tt class="docutils literal"><span class="pre">static</span></tt> folder defined in the settings module.</p>
 <p><tt class="docutils literal"><span class="pre">migrate</span></tt> will applying database migration to update the database schemas of CDR-Stats to its latest version.</p>
 <p><tt class="docutils literal"><span class="pre">createsuperuser</span></tt> will create a super user, to access to the admin section of CDR-Stats.</p>
-<p><tt class="docutils literal"><span class="pre">runserver</span></tt> runs an embedded webserver to test your site.
+<p><tt class="docutils literal"><span class="pre">runserver</span></tt> runs an embedded webserver to test the site.
 By default it will run on <a class="reference external" href="http://localhost:8000">http://localhost:8000</a>. This is configurable and more
-information can be found on <tt class="docutils literal"><span class="pre">runserver</span></tt> in Django documentation.</p>
+information about <tt class="docutils literal"><span class="pre">runserver</span></tt> is in Django documentation.</p>
 </div>
 </div>
 
@@ -127,18 +125,18 @@ information can be found on <tt class="docutils literal"><span class="pre">runse
         </div>
       </div>
       <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper"><p class="logo"><a href="index.html">
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
+  <p class="topless"><a href="../installation.html"
                         title="previous chapter">Installation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="installation-asterisk.html"
                         title="next chapter">Installation with Asterisk</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
@@ -157,23 +155,23 @@ information can be found on <tt class="docutils literal"><span class="pre">runse
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="installation-asterisk.html" title="Installation with Asterisk"
              >next</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="../installation.html" title="Installation"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
-          <li><a href="installation.html" >Installation</a> &raquo;</li> 
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+          <li><a href="../installation.html" >Installation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
     </div>
   </body>
 </html>

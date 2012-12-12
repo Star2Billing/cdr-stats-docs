@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Customer Panel &mdash; CDR-Stats 2.0.0beta3 documentation</title>
+    <title>Customer Panel &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.0beta3',
+        VERSION:     '2.0.0RC1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0beta3 documentation" href="../index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
     <link rel="up" title="User Guide" href="../user-guide.html" />
-    <link rel="next" title="Configuration and Defaults" href="../configuration-defaults.html" />
+    <link rel="next" title="MongoDB" href="../mongodb-architecture.html" />
     <link rel="prev" title="Admin Panel" href="admin_panel.html" /> 
   </head>
   <body>
@@ -39,12 +39,12 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../configuration-defaults.html" title="Configuration and Defaults"
+          <a href="../mongodb-architecture.html" title="MongoDB"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="admin_panel.html" title="Admin Panel"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
           <li><a href="../user-guide.html" accesskey="U">User Guide</a> &raquo;</li> 
       </ul>
     </div>  
@@ -100,8 +100,7 @@ and calls by country, either agregrated for all switches, or selectable by switc
 </div>
 <div class="section" id="cdr-overview">
 <h3>CDR-Overview<a class="headerlink" href="#cdr-overview" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get pictorial view of calls with call-count or call-duration
-from any date or date-range</p>
+<p>A pictorial view of calls with call-count or call-duration from any date or date-range</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -112,7 +111,7 @@ from any date or date-range</p>
 </div>
 <div class="section" id="cdr-hourly-report">
 <h3>CDR-Hourly-Report<a class="headerlink" href="#cdr-hourly-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get hourly pictorial view of calls with call-count &amp; call-duration.
+<p>An hourly pictorial view of calls with call-count &amp; call-duration.
 You can compare different dates</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
@@ -124,7 +123,7 @@ You can compare different dates</p>
 </div>
 <div class="section" id="cdr-global-report">
 <h3>CDR-Global-Report<a class="headerlink" href="#cdr-global-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get pictorial view of all calls</p>
+<p>A pictorial view of all calls</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -135,8 +134,7 @@ You can compare different dates</p>
 </div>
 <div class="section" id="cdr-country-report">
 <h3>CDR-Country-Report<a class="headerlink" href="#cdr-country-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get pictorial view of all calls by country. Also
-you can have 10 most called countries name with pie chart</p>
+<p>A pictorial view of all calls by country with the 10 most called countries in a pie chart.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -147,8 +145,11 @@ you can have 10 most called countries name with pie chart</p>
 </div>
 <div class="section" id="mail-report">
 <h3>Mail-Report<a class="headerlink" href="#mail-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, there is a list of the last 10 calls of the previous day, along with total calls, a
+<p>A list of the last 10 calls of the previous day, along with total calls, a
 breakdown of the call status, and the top 5 countries called.</p>
+<p>This report is emailed automatically, email recipients can be set up in the
+admin section or by adding an email address in the &#8220;Email to send a report&#8221; field
+in the Mail Report section.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -159,7 +160,8 @@ breakdown of the call status, and the top 5 countries called.</p>
 </div>
 <div class="section" id="concurrent-call-report">
 <h3>Concurrent-call-report<a class="headerlink" href="#concurrent-call-report" title="Permalink to this headline">¶</a></h3>
-<p>In this view, you can get report of concurrent calls</p>
+<p>A report of concurrent calls. The statistics are collated from the realtime
+report, not from the CDR.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -170,8 +172,8 @@ breakdown of the call status, and the top 5 countries called.</p>
 </div>
 <div class="section" id="realtime-report">
 <h3>Realtime-Report<a class="headerlink" href="#realtime-report" title="Permalink to this headline">¶</a></h3>
-<p>This view provides realtime monitoring of the traffic on the connected telecoms servers.
-Currently, only Freeswitch is supported.</p>
+<p>Realtime monitoring of the traffic on the connected telecoms servers,
+Freeswitch and Asterisk are supported.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -182,7 +184,7 @@ Currently, only Freeswitch is supported.</p>
 </div>
 <div class="section" id="world-map-report">
 <h3>World Map Report<a class="headerlink" href="#world-map-report" title="Permalink to this headline">¶</a></h3>
-<p>This view provides a mapping view of all calls / durations by country. You can select date criteria
+<p>A distriibution map of all calls / durations by country. You can select date criteria
 and on mouse over on the world map you can get information about each country.</p>
 <p><strong>URL</strong>:</p>
 <blockquote>
@@ -208,8 +210,8 @@ and on mouse over on the world map you can get information about each country.</
   <p class="topless"><a href="admin_panel.html"
                         title="previous chapter">Admin Panel</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../configuration-defaults.html"
-                        title="next chapter">Configuration and Defaults</a></p>
+  <p class="topless"><a href="../mongodb-architecture.html"
+                        title="next chapter">MongoDB</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -237,17 +239,17 @@ and on mouse over on the world map you can get information about each country.</
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../configuration-defaults.html" title="Configuration and Defaults"
+          <a href="../mongodb-architecture.html" title="MongoDB"
              >next</a> |</li>
         <li class="right" >
           <a href="admin_panel.html" title="Admin Panel"
              >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0beta3 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
           <li><a href="../user-guide.html" >User Guide</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Arezqui Belaid &lt;info@star2billing.com&gt;.
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
     </div>
   </body>
 </html>

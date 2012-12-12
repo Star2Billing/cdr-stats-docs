@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Asterisk Configuration. &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0RC1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+
+    <div class="section" id="asterisk-configuration">
+<span id="configuration-asterisk"></span><h1>Asterisk Configuration.<a class="headerlink" href="#asterisk-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="import-configuration-for-asterisk">
+<h2>Import configuration for Asterisk.<a class="headerlink" href="#import-configuration-for-asterisk" title="Permalink to this headline">¶</a></h2>
+<p>The asterisk settings may be as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#list of CDR Backends to import</span>
+<span class="n">CDR_BACKEND</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;127.0.0.1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;db_engine&#39;</span><span class="p">:</span> <span class="s">&#39;mysql&#39;</span><span class="p">,</span>
+        <span class="s">&#39;cdr_type&#39;</span><span class="p">:</span> <span class="s">&#39;asterisk&#39;</span><span class="p">,</span>
+        <span class="s">&#39;db_name&#39;</span><span class="p">:</span> <span class="s">&#39;asteriskcdrdb&#39;</span><span class="p">,</span>
+        <span class="s">&#39;table_name&#39;</span><span class="p">:</span> <span class="s">&#39;cdr&#39;</span><span class="p">,</span>
+        <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="s">&#39;port&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+        <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="s">&#39;root&#39;</span><span class="p">,</span>
+        <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;password&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c">#&#39;192.168.1.200&#39;: {</span>
+        <span class="c">#&#39;db_engine&#39;: &#39;mysql&#39;,</span>
+        <span class="c">#&#39;cdr_type&#39;: &#39;asterisk&#39;,</span>
+        <span class="c">#&#39;db_name&#39;: &#39;asteriskcdrdb&#39;,</span>
+        <span class="c">#&#39;table_name&#39;: &#39;cdr&#39;,</span>
+        <span class="c">#&#39;host&#39;: &#39;localhost&#39;,</span>
+        <span class="c">#&#39;port&#39;: &#39;&#39;,</span>
+        <span class="c">#&#39;user&#39;: &#39;root&#39;,</span>
+        <span class="c">#&#39;password&#39;: &#39;password&#39;,</span>
+    <span class="c">#},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To add a new remote Asterisk MySQL CDR store,  ensure that there is a connection to the remote MySQL database, then uncomment the new server settings by removing the # and configuring the credentials to connect to the remote Asterisk CDR store.</p>
+</div>
+</div>
+<div class="section" id="realtime-configuration-for-asterisk">
+<span id="realtime-configuration-asterisk"></span><h1>Realtime configuration for Asterisk.<a class="headerlink" href="#realtime-configuration-for-asterisk" title="Permalink to this headline">¶</a></h1>
+<p>The Asterisk Manager settings allow CDR-Stats to retrieve Realtime information to show the number of concurrent calls both in realtime and historically.</p>
+<p>The settings to configure are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#Asterisk Manager / Used for Realtime and Concurrent calls</span>
+<span class="n">ASTERISK_MANAGER_HOST</span> <span class="o">=</span> <span class="s">&#39;localhost&#39;</span>
+<span class="n">ASTERISK_MANAGER_USER</span> <span class="o">=</span> <span class="s">&#39;cdrstats_user&#39;</span>
+<span class="n">ASTERISK_MANAGER_SECRET</span> <span class="o">=</span> <span class="s">&#39;cdrstats_secret&#39;</span>
+</pre></div>
+</div>
+<p>In Asterisk, add a new user in manager.conf, or one of its #include&#8217;s for CDR-Stats. Further information about Asterisk Manager can be found here : <a class="reference external" href="http://www.voip-info.org/wiki/view/Asterisk+config+manager.conf">http://www.voip-info.org/wiki/view/Asterisk+config+manager.conf</a></p>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

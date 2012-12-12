@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How to use CDR-Stats &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    <title>Installing on FreePBX &mdash; CDR-Stats 2.0.0RC1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -23,10 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
-    <link rel="up" title="User Guide" href="../user-guide.html" />
-    <link rel="next" title="Admin Panel" href="admin_panel.html" />
-    <link rel="prev" title="Overview" href="overview.html" /> 
+    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,14 +35,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="admin_panel.html" title="Admin Panel"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="overview.html" title="Overview"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
-          <li><a href="../user-guide.html" accesskey="U">User Guide</a> &raquo;</li> 
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -55,12 +45,15 @@
           <div class="body">
             
 
-    <div class="section" id="how-to-use-cdr-stats">
-<span id="how-to-use-it"></span><h1>How to use CDR-Stats<a class="headerlink" href="#how-to-use-cdr-stats" title="Permalink to this headline">¶</a></h1>
-<p>CDR-Stats has two main areas, the admin screen and the customer portal. The admin and customer areas
-are described in detail in the following pages.</p>
-<p>CDR-Stats has been designed to be responsive, that is to say the the layout changes depending on the
-size and resolution of the browser viewing the pages.</p>
+    <div class="section" id="installing-on-freepbx">
+<h1>Installing on FreePBX<a class="headerlink" href="#installing-on-freepbx" title="Permalink to this headline">¶</a></h1>
+<p>CDR-Stats will be configured to attach to the asteriskcdrdb database in MySQL installed by the FreePBX installation routine, which contains all the call data records. A connector is installed that takes the CDR from MySQL and imports them into MongoDB in realtime. The web interface for CDR-Stats will be installed on port 8008 and the Websocket on port 9000, so it is neceesary to update the firewall settings to allow access to these ports</p>
+<p>Before commencing, a back up of FreePBX, in particular asteriskcdrdb is recommended. Also have a note of the root password for MySQL.</p>
+<p>Run the following commands at the console:</p>
+<div class="highlight-python"><pre>$ wget –no-check-certificate https://raw.github.com/Star2Billing/cdr-stats/master/install/install-cdr-stats-asterisk.sh -O install-cdr-stats-asterisk.sh
+$ bash install-cdr-stats-asterisk.sh</pre>
+</div>
+<p>The install routine will ask a number of questions, all of which are self explanatory. Select “Install all” which is option 1 in the CDR-Stats Installation Menu.</p>
 </div>
 
 
@@ -72,12 +65,6 @@ size and resolution of the browser viewing the pages.</p>
         <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
   <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
 </a></p>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="overview.html"
-                        title="previous chapter">Overview</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="admin_panel.html"
-                        title="next chapter">Admin Panel</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -104,14 +91,7 @@ size and resolution of the browser viewing the pages.</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="admin_panel.html" title="Admin Panel"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="overview.html" title="Overview"
-             >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
-          <li><a href="../user-guide.html" >User Guide</a> &raquo;</li> 
+        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
