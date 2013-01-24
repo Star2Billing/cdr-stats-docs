@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Frequently Asked Questions &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    <title>Frequently Asked Questions &mdash; CDR-Stats 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0.0RC1',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0 documentation" href="index.html" />
     <link rel="prev" title="Resources" href="resources.html" /> 
   </head>
   <body>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="resources.html" title="Resources"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -60,22 +60,18 @@
 <span id="faq-general"></span><h2><a class="toc-backref" href="#id1">General</a><a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-is-cdr-stats">
 <span id="faq-when-to-use"></span><h3>What is CDR-Stats?<a class="headerlink" href="#what-is-cdr-stats" title="Permalink to this headline">¶</a></h3>
-<p><strong>Answer:</strong> .</p>
-<p>CDR-Stats is a free and open source web based Call Detail Record analysis application with the ability
-to display reports and graphs.</p>
+<p><strong>Answer:</strong> CDR-Stats is a free and open source web based Call Detail Record analysis application with the ability to display reports and graphs.</p>
 </div>
 <div class="section" id="why-should-i-use-cdr-stats">
 <h3>Why should I use CDR-Stats?<a class="headerlink" href="#why-should-i-use-cdr-stats" title="Permalink to this headline">¶</a></h3>
-<p><strong>Answer:</strong> .</p>
-<p>If you have call detail records from an office PBX, telecoms switch(s), or carrier CDR to analyse
+<p><strong>Answer:</strong> If you have call detail records from an office PBX, telecoms switch(s), or carrier CDR to analyse
 then CDR-Stats is a useful tool to analyse the data and look for patterns in the traffic that
 may indicate problems or potential fraud. Furthermore, CDR-Stats can be configured to send email
 alerts on detection of unusual activity, as well as send daily reports on traffic.</p>
 </div>
 <div class="section" id="how-to-start-over-delete-cdrs-and-relaunch-the-import">
 <h3>How to start over, delete CDRs and relaunch the import ?<a class="headerlink" href="#how-to-start-over-delete-cdrs-and-relaunch-the-import" title="Permalink to this headline">¶</a></h3>
-<p><strong>Answer:</strong> .</p>
-<p>First, stop celery and drop your current mongoDB, you can do this with this command:</p>
+<p><strong>Answer:</strong> First, stop celery and drop your current mongoDB, you can do this with this command:</p>
 <div class="highlight-python"><pre>$ mongo cdr-stats --eval 'db.dropDatabase();'</pre>
 </div>
 <p>Update all your CDRs to be reimported as we flag them after import. This next step is dependant on your CDR store,</p>
@@ -90,8 +86,7 @@ db.cdr.update({&#8220;import_cdr&#8221; : 1}, { $set : {&#8220;import_cdr&#8221;
 </div>
 <div class="section" id="how-to-debug-mail-connectivity">
 <h3>How to debug mail connectivity?<a class="headerlink" href="#how-to-debug-mail-connectivity" title="Permalink to this headline">¶</a></h3>
-<p><strong>Answer:</strong> .</p>
-<p>Use mail_debug to test the mail connectivity:</p>
+<p><strong>Answer:</strong> Use mail_debug to test the mail connectivity:</p>
 <div class="highlight-python"><pre>$ cd /usr/share/cdr_stats
 $ workon cdr-stats
 $ python manage.py mail_debug</pre>
@@ -99,7 +94,7 @@ $ python manage.py mail_debug</pre>
 </div>
 <div class="section" id="what-should-i-do-if-i-have-problems">
 <h3>What should I do if I have problems?<a class="headerlink" href="#what-should-i-do-if-i-have-problems" title="Permalink to this headline">¶</a></h3>
-<p><strong>Answer:</strong> .</p>
+<p><strong>Answer:</strong></p>
 <ul class="simple">
 <li>Review the installation script, and check that services are running.</li>
 <li>Read the documentation contained in the CDR-Stats website.</li>
@@ -152,7 +147,7 @@ $ python manage.py mail_debug</pre>
         <li class="right" >
           <a href="resources.html" title="Resources"
              >previous</a> |</li>
-        <li><a href="index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">CDR-Stats 2.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

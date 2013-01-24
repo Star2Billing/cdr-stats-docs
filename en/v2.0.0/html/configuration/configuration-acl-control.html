@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ACL Control &mdash; CDR-Stats 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CDR-Stats 2.0.0 documentation" href="../index.html" />
+    <link rel="up" title="Configuration and Defaults" href="../configuration.html" />
+    <link rel="next" title="Troubleshooting" href="../troubleshooting.html" />
+    <link rel="prev" title="Celery Configuration" href="../celery/celery-configuration.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../troubleshooting.html" title="Troubleshooting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../celery/celery-configuration.html" title="Celery Configuration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" accesskey="U">Configuration and Defaults</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+
+    <div class="section" id="acl-control">
+<span id="configuration-acl-control"></span><h1>ACL Control<a class="headerlink" href="#acl-control" title="Permalink to this headline">¶</a></h1>
+<p>One of the benefits of CDR-Stats is ACL access, allowing numerous people to
+access CDR-Stats each viewing their own CDR with permissions assigned to allow
+viewing different parts of the interface.</p>
+<div class="section" id="add-customer">
+<h2>Add Customer<a class="headerlink" href="#add-customer" title="Permalink to this headline">¶</a></h2>
+<p>To add a new user, enter the admin screen and Add Customer. Enter a username
+and password, (twice for authentication), optionally add address details, then
+enter the accountcode of the customer which corresponds to the accountcode
+that is delivered in the CDR. When done, click save, and the customer details
+will be saved and the page reloaded and now displays the user permissions
+available.</p>
+<p>Permissions can be added individually by selecting the permission and then
+pressing the right arrow to  move the permission from the left field to the
+right field. When done, click save. The permissions to assign to the user are
+those beginning with user_profile and cdr_alert.</p>
+</div>
+<div class="section" id="group-permissions">
+<h2>Group Permissions<a class="headerlink" href="#group-permissions" title="Permalink to this headline">¶</a></h2>
+<p>When you have many customers who are all to have the same permissions, you
+can add a group, assign the group the desired permissions, then add the
+customer to the group.</p>
+<p>From the admin screens, Click add group, give it a name, assign permissions
+then save. Finally edit the customer, select the groups to which the customer
+will belong, then click save. The customer will then inherit permissions from
+their group.</p>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo"><a href="../index.html">
+  <img class="logo" src="https://github.com/Star2Billing/cdr-stats/raw/master/cdr_stats/resources/images/cdr-stats-logo-180.png" alt="Logo"/>
+</a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../celery/celery-configuration.html"
+                        title="previous chapter">Celery Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../troubleshooting.html"
+                        title="next chapter">Troubleshooting</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../troubleshooting.html" title="Troubleshooting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../celery/celery-configuration.html" title="Celery Configuration"
+             >previous</a> |</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0 documentation</a> &raquo;</li>
+          <li><a href="../configuration.html" >Configuration and Defaults</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Arezqui Belaid &lt;info@star2billing.com&gt;.
+    </div>
+  </body>
+</html>

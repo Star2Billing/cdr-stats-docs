@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Coding Style &amp; Structure &mdash; CDR-Stats 2.0.0RC1 documentation</title>
+    <title>Coding Style &amp; Structure &mdash; CDR-Stats 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/cdr-stats.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.0RC1',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CDR-Stats 2.0.0RC1 documentation" href="../index.html" />
+    <link rel="top" title="CDR-Stats 2.0.0 documentation" href="../index.html" />
     <link rel="up" title="Developer doc" href="../developer-doc.html" />
     <link rel="next" title="Objects Description" href="objects-description.html" />
     <link rel="prev" title="Prerequisites" href="pre-requisite.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="pre-requisite.html" title="Prerequisites"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" accesskey="U">Developer doc</a> &raquo;</li> 
       </ul>
     </div>  
@@ -65,9 +65,16 @@
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
 <p>The CDR-Stats directory:</p>
 <div class="highlight-python"><pre>|-- api                - The code for APIs
+|   `-- api_playground
 |-- cdr                - The code for CDR
+|   |-- management
+|   |-- templatetags
 |   `-- fixtures
-|-- cdr_alert
+|-- cdr_alert          - The code for alarm, blacklist, whitelist
+|   |-- management
+|   `-- fixtures
+|-- frontend           - The code for login, logout user
+|-- user_profile       - The code for user detail of system
 |-- static
 |   |-- cdr
 |   |    |-- css
@@ -77,7 +84,9 @@
 |-- resources          - This area is used to hold media files
 `-- templates          - This area is used to override templates
     |-- admin
-    `-- cdr</pre>
+    |-- admin_tools
+    |-- api_browser
+    `-- frontend</pre>
 </div>
 </div>
 </div>
@@ -129,7 +138,7 @@
         <li class="right" >
           <a href="pre-requisite.html" title="Prerequisites"
              >previous</a> |</li>
-        <li><a href="../index.html">CDR-Stats 2.0.0RC1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CDR-Stats 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../developer-doc.html" >Developer doc</a> &raquo;</li> 
       </ul>
     </div>
